@@ -40,6 +40,7 @@ def prepare(clips, site, base_url, post_hour):
         d = next(iter(Path(clips).glob(f"*-{it['key']}")), None)  # بالمفتاح: قد يتغيّر التاريخ بعد الإنتاج
         if not d:
             continue
+        day = max(day, date.fromisoformat(it["date"]))  # لا قبل الموعد المخطط بقائمة الانتظار
         while day in busy:
             day += timedelta(days=1)
         due = datetime.combine(day, time(post_hour, 0), TZ)
