@@ -7,8 +7,8 @@ permissions:
   contents: read
 
 env:
-  PAGES_PROJECT: binsheikh-media
-  BASE_URL: https://binsheikh-media.pages.dev
+  PAGES_PROJECT: clipmedia-9x4k
+  BASE_URL: https://clipmedia-9x4k.pages.dev
 
 jobs:
   clean:
