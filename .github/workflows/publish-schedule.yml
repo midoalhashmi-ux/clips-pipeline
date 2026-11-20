@@ -1,0 +1,116 @@
+name: Publish and schedule clips
+
+on:
+  workflow_run:
+    workflows: ["Weekly content production"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Production run id (empty = latest successful Weekly content production)'
+        default: ''
+      hour:
+        description: 'Posting hour (Riyadh time, 24h)'
+        default: '20'
+      media_only:
+        description: 'true = only host the clips (TikTok link for Metricool), no Buffer scheduling'
+        default: 'false'
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  PAGES_PROJECT: binsheikh-media
+  BASE_URL: https://binsheikh-media.pages.dev
+
+jobs:
+  publish:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download ready clips
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RID="${{ inputs.run_id || github.event.workflow_run.id }}"
+          if [ -z "$RID" ]; then
+            RID=$(gh run list --workflow autoproduce.yml --status success --limit 1 --json databaseId -q '.[0].databaseId')
+          fi
+          echo "Using production run $RID"
+          gh run download "$RID" -n ready-clips -D clips
+      - name: Prepare temporary media site and schedule via Buffer
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: |
+          mkdir -p site
+          python tools/autoproduce/schedule_buffer.py --clips clips --site site --base-url "$BASE_URL" \
+            --hour "${{ inputs.hour || 20 }}" --plan-out plan.json --dry-run
+      - name: Keep every scheduled clip on the media site (Buffer reads it at publish time)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for RID in $(python -c "import json;print(' '.join(sorted({m['run_id'] for m in json.load(open('tools/autoproduce/media_manifest.json'))})))"); do
+            gh run download "$RID" -n ready-clips -D "runs/$RID" || echo "skip $RID"
+          done
+          python tools/autoproduce/media_site.py --manifest tools/autoproduce/media_manifest.json --clips-root runs --site site
+      - name: Deploy temporary media to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx --yes wrangler@3 pages project create "$PAGES_PROJECT" --production-branch main || true
+          npx --yes wrangler@3 pages deploy site --project-name "$PAGES_PROJECT" --branch main --commit-dirty=true
+      - name: Verify media is public
+        run: |
+          python - <<'PY'
+          import json, time, urllib.request
+          UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36', 'Range': 'bytes=0-1023'}
+          for r in json.load(open('plan.json')):
+              for attempt in range(5):
+                  try:
+                      with urllib.request.urlopen(urllib.request.Request(r['url'], headers=UA), timeout=60) as x:
+                          assert x.status in (200, 206), r['url']
+                      break
+                  except Exception as e:
+                      if attempt == 4:
+                          raise
+                      print('retry', r['url'], e); time.sleep(8)
+          print('all media reachable')
+          PY
+      - name: Print TikTok links only (media_only)
+        if: ${{ inputs.media_only == 'true' }}
+        run: |
+          python - <<'PY'
+          import json
+          for r in json.load(open('plan.json')):
+              if r['platform'] == 'tiktok':
+                  print('TIKTOK|' + '|'.join([r['date'], r['due_at_utc'], r['key'], r['url']]))
+          PY
+      - name: Schedule YouTube, Instagram and Facebook via Buffer
+        if: ${{ inputs.media_only != 'true' }}
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json, sys
+          sys.path.insert(0, 'tools/autoproduce')
+          import schedule_buffer as sb
+          rows = json.load(open('plan.json'))
+          sb.schedule(rows)
+          json.dump(rows, open('plan.json', 'w'), ensure_ascii=False, indent=2)
+          for r in rows:
+              if r['platform'] == 'tiktok':
+                  print('TIKTOK|' + '|'.join([r['date'], r['due_at_utc'], r['key'], r['url']]))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: schedule-plan
+          path: plan.json
+          retention-days: 30

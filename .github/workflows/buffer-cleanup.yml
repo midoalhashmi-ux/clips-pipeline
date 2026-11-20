@@ -1,0 +1,33 @@
+name: Buffer cleanup (cancel scheduled posts)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'list: show scheduled posts; delete: cancel them all'
+        type: choice
+        options: [list, delete]
+        default: list
+      ids:
+        description: 'Only these post ids, comma separated (empty = all scheduled)'
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Buffer CLI help (posts)
+        continue-on-error: true
+        run: npx --yes @bufferapp/cli posts --help
+      - name: Run
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: python tools/autoproduce/buffer_cleanup.py --mode "${{ inputs.mode }}" --ids "${{ inputs.ids }}"

@@ -1,0 +1,64 @@
+name: Weekly content production
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Days ahead to produce'
+        default: '7'
+      only:
+        description: 'Single queue key to produce (optional, overrides days)'
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install ffmpeg and yt-dlp
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libraqm0 libfribidi0
+          pip install yt-dlp pillow
+      - name: SEO check (fails on any rule violation)
+        run: python tools/autoproduce/seo_check.py
+      - name: Free keyword research (YouTube and Google suggestions)
+        continue-on-error: true
+        run: python tools/autoproduce/keyword_research.py
+      - uses: actions/upload-artifact@v4
+        if: ${{ hashFiles('tools/autoproduce/keyword-research.json') != '' }}
+        with:
+          name: keyword-research
+          path: tools/autoproduce/keyword-research.json
+          retention-days: 30
+      - name: Outro audio cache key
+        id: outrokey
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import hashlib, json
+          t = json.load(open('docs/marketing/publishing-policy.json'))['download_outros']
+          print('h=' + hashlib.sha1(json.dumps(t, sort_keys=True).encode()).hexdigest()[:12])
+          PY
+      - name: Restore outro voice cache (saves the free voice quota)
+        uses: actions/cache@v4
+        with:
+          path: tools/autoproduce/outro_cache
+          key: outro-audio-${{ steps.outrokey.outputs.h }}
+      - name: Produce clips
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python tools/autoproduce/produce.py --days "${{ inputs.days || '7' }}" --only "${{ inputs.only }}"
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() && hashFiles('tools/autoproduce/out/**') != '' }}
+        with:
+          name: ready-clips
+          path: tools/autoproduce/out/
+          retention-days: 30
