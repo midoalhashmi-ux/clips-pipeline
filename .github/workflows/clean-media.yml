@@ -30,7 +30,7 @@ jobs:
         if: steps.decide.outputs.clean == 'yes'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || 'bde373bccc926d9805939154b3d59a8b' }}
         run: |
           mkdir empty && echo '<!doctype html><title>.</title>' > empty/index.html
           npx --yes wrangler@3 pages deploy empty --project-name "$PAGES_PROJECT" --branch main --commit-dirty=true
