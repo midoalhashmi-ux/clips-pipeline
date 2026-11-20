@@ -24,8 +24,8 @@ jobs:
           python-version: '3.12'
       - name: Install ffmpeg and yt-dlp
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg libraqm0 libfribidi0
+          sudo timeout 300 apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 update -qq || true
+          sudo timeout 600 apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 install -y -qq ffmpeg libraqm0 libfribidi0
           pip install yt-dlp pillow
       - name: SEO check (fails on any rule violation)
         run: python tools/autoproduce/seo_check.py
