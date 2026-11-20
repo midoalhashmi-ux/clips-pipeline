@@ -68,12 +68,51 @@ def gemini_voice(speech, wav_path):
     sys.exit(f"فشل توليد الصوت: {last}")
 
 
+MIN_SOURCE_HEIGHT = 720  # طلب المالك 20 نوفمبر 2026: لا مصدر أقل من 720p، والمفضّل 1080p فأعلى
+PREFERRED_SOURCE_HEIGHT = 1080
+
+
+def best_rendition(url):
+    """رابط theplatform الافتراضي قد يعيد نسخة صغيرة (234p لإعلاني ون بيس القديمين)؛ نختار أعلى دقة من ملف SMIL."""
+    if "theplatform.com" not in url:
+        return url
+    try:
+        smil_url = url + ("&" if "?" in url else "?") + "format=SMIL"
+        smil = urllib.request.urlopen(smil_url, timeout=30).read().decode("utf-8", "ignore")
+    except Exception:
+        return url
+    best = None
+    for tag in re.findall(r"<video\b[^>]*>", smil):
+        src, h, b = (re.search(p, tag) for p in (r'src="([^"]+)"', r'height="(\d+)"', r'system-bitrate="(\d+)"'))
+        if not (src and h):
+            continue
+        key = (int(h.group(1)), int(b.group(1)) if b else 0)
+        if best is None or key > best[0]:
+            best = (key, src.group(1).replace("&amp;", "&"))
+    return best[1] if best else url
+
+
+def check_quality(path):
+    """يرفض أي مصدر أقل من 720p، ويحذّر إن كان أقل من 1080p."""
+    out = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+        "-of", "csv=p=0", str(path)], capture_output=True, text=True).stdout.strip().split(",")
+    w, h = int(out[0]), int(out[1])
+    short = min(w, h)
+    if short < MIN_SOURCE_HEIGHT:
+        raise SystemExit(f"جودة المصدر {w}x{h} أقل من {MIN_SOURCE_HEIGHT}p ممنوعة؛ اختر مصدراً بجودة 1080p أو أعلى")
+    if short < PREFERRED_SOURCE_HEIGHT:
+        print(f"تنبيه: جودة المصدر {w}x{h}؛ المفضّل 1080p فأعلى")
+    else:
+        print(f"جودة المصدر {w}x{h} سليمة")
+
+
 def fetch_source(item, dest):
     url = item["source_url"]
     if url.lower().endswith(".mp4") or "theplatform.com" in url:
-        urllib.request.urlretrieve(url, dest)
+        urllib.request.urlretrieve(best_rendition(url), dest)
     else:
-        subprocess.run(["yt-dlp", "-f", "mp4/best", "-o", str(dest), url], check=True)
+        subprocess.run(["yt-dlp", "-f", "bv*[height>=1080]+ba/bv*[height>=720]+ba/b[height>=720]", "--merge-output-format", "mp4",
+            "-o", str(dest), url], check=True)
 
 
 ACCENTS = ["#a8f36a", "#b29aff", "#ffb668", "#6ad6ff", "#ff8fa3", "#ffd86a"]  # ألوان أعمال سابقة (خضراء أولاً)
@@ -329,7 +368,7 @@ def produce_item(it, a):
             segs = make_voice_segments(it, d, a, wav)
         else:
             gemini_voice(meta["speech"], wav)
-        src = d / "source.mp4"; fetch_source(it, src)
+        src = d / "source.mp4"; fetch_source(it, src); check_quality(src)
     build_video(src, wav, d / "video.mp4", {**meta, **{k: it[k] for k in ("key", "display_title", "english_title", "accent", "clip_start", "audio_mode", "tail") if k in it}}, d, segs)
     (d / "meta.txt").write_text(
         f"العنوان:\n{meta['title']}\n\nالوصف:\n{meta['description']}\n\nالوسوم:\n{', '.join(meta['tags'])}\n\n"
