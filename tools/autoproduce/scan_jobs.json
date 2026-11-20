@@ -1,4 +1,3 @@
 [
- {"name": "a_exec", "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4", "audio": true},
- {"name": "a_s1", "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4", "audio": true}
+ {"name": "a_s1_beat", "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4", "times": [54.3, 54.6, 55.0, 55.5, 56.0, 56.5, 57.0, 57.5, 58.0, 58.5, 58.8]}
 ]
