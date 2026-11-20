@@ -34,7 +34,10 @@ The same Saudi storyteller, warm and friendly, white Saudi dialect.
 - Read the Arabic transcript exactly as written. Never read these notes.
 
 #### TRANSCRIPT"""
-VOICE_NAME = os.environ.get("VOICE_NAME", "Charon")  # الصوت المعتمد من المالك
+VOICE_NAME = "Charon"  # الصوت الوحيد المعتمد من المالك (20 نوفمبر 2026): لا يُغيَّر
+# إيقاع المحترفين (طلب المالك 20 نوفمبر 2026: «بطيء، أعطه تسريعاً»): كل صوت يُسرَّع 1.18 على الأقل، وحتى 1.3 إن طال.
+VOICE_TEMPO = 1.18
+MAX_TEMPO = 1.3
 
 
 def polish_voice(wav):
@@ -150,8 +153,8 @@ def build_montage(item, d, target=None):
     و`start` و`dur` و`shows` (ما يظهر فيه). تُقصّ وتُدمج بالترتيب بحجم 1920x1080 بلا صوت، ثم تُستعمل كمصدر واحد."""
     cache, parts = {}, []
     total = sum(float(sg["dur"]) for sg in item["segments"]) or 1.0
-    # تتمدد اللقطات أو تنكمش معاً لتطابق طول الصوت (بين 0.8 و1.25)، فتبقى كل لقطة على جملتها
-    factor = min(1.25, max(0.8, target / total)) if target else 1.0
+    # تتمدد اللقطات أو تنكمش معاً لتطابق طول الصوت (بين 0.7 و1.25)، فتبقى كل لقطة على جملتها
+    factor = min(1.25, max(0.7, target / total)) if target else 1.0
     for i, seg in enumerate(item["segments"]):
         url = seg.get("url") or item["source_url"]
         if url not in cache:
@@ -362,7 +365,7 @@ def outro_platforms():
 def build_outro(png, wav, out, cap=6.0):
     with wave.open(str(wav)) as w:
         sp = w.getnframes() / w.getframerate()
-    tempo = min(1.25, max(1.0, sp / (cap - 0.5)))  # تسريع طفيف فقط إن زاد الصوت عن الحد
+    tempo = min(MAX_TEMPO, max(VOICE_TEMPO, sp / (cap - 0.5)))  # إيقاع المحترفين، وأكثر إن زاد الصوت عن الحد
     dur = min(cap, sp / tempo + 0.5)
     bg = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30,setsar=1[bg]"
     fg = "scale=1000:-2:force_original_aspect_ratio=decrease[fg]"
@@ -407,9 +410,9 @@ def wav_dur(path):
 
 
 def fit_wav(src, dst, mx):
-    """يسرّع الصوت طفيفاً (حتى 1.25x) إن زاد عن الحد الأقصى بالثواني."""
+    """يسرّع الصوت بإيقاع المحترفين VOICE_TEMPO دائماً، وأكثر (حتى MAX_TEMPO) إن زاد عن الحد الأقصى بالثواني."""
     dd = wav_dur(src)
-    tempo = min(1.25, max(1.0, dd / mx))
+    tempo = min(MAX_TEMPO, max(VOICE_TEMPO, dd / mx))
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-af", f"atempo={tempo:.3f}",
         "-ar", "24000", "-ac", "1", str(dst)], check=True)
     if wav_dur(dst) > mx + 0.3:
@@ -467,9 +470,9 @@ def produce_item(it, a):
             else:
                 gemini_voice(meta["speech"], wav)
                 OUTRO_CACHE.mkdir(parents=True, exist_ok=True); shutil.copy(wav, vkey)
-            if it.get("format") == "explainer" and wav_dur(wav) > MAX_MAIN_SECONDS:
-                # طلب المالك 20 نوفمبر 2026: المقطع 25 إلى 35 ثانية بالخاتمة؛ يُسرَّع الصوت حتى 1.25 إن طال
-                fitted = d / "voice_fit.wav"; fit_wav(wav, fitted, MAX_MAIN_SECONDS); fitted.replace(wav)
+            # طلب المالك 20 نوفمبر 2026: إيقاع المحترفين دائماً، والمقطع الشرحي 25 إلى 35 ثانية بالخاتمة
+            fitted = d / "voice_fit.wav"
+            fit_wav(wav, fitted, MAX_MAIN_SECONDS if it.get("format") == "explainer" else 999.0); fitted.replace(wav)
             polish_voice(wav)
         if it.get("segments"):
             src = build_montage(it, d, target=wav_dur(wav) + 1.0)
