@@ -581,7 +581,7 @@
     "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
     "source_url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
     "accent": "#ff6b5e",
-    "speech": "هل تانجيرو تجسيد ليوريتشي؟ تخيّل إن البطل يلبس أقراط أقوى سيّاف في التاريخ. نظرية مشهورة تقول نعم، بدليل الأقراط ورقصة الشمس. والغريب إن تصميمه الأول كان بلا ندبة ولا أقراط. واسمه يعني الفحم والشفاء. ونظرية ثانية تربط سيفه الأسود بتنفس الشمس. تتوقع صحيحة؟ اكتب رأيك.",
+    "speech": "هل تانجيرو تجسيد ليوريتشي؟ تخيّل إن البطل يلبس أقراط أقوى سيّاف في التاريخ. نظرية مشهورة تقول نعم، بدليل الأقراط ورقصة الشمس. وتصميمه الأول كان بلا ندبة ولا أقراط. ونظرية ثانية تربط سيفه الأسود بتنفس الشمس. تتوقع صحيحة؟ اكتب رأيك.",
     "title": "Demon Slayer قاتل الشياطين | هل تانجيرو تجسيد يوريتشي؟",
     "description": "Demon Slayer قاتل الشياطين | هل تانجيرو تجسيد يوريتشي؟\nهل تانجيرو تجسيد يوريتشي؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين، مع التمييز بين المؤكد والنظرية.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#DemonSlayer #قاتل_الشياطين #شرح_أنمي",
     "tags": [
@@ -625,70 +625,76 @@
     "segments": [
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 36.0,
-        "dur": 2.0,
-        "shows": "تانجيرو بأقراطه عن قرب (إعلان رسمي)"
+        "start": 36.2,
+        "dur": 2.6,
+        "shows": "تانجيرو بأقراطه ثم في الثلج"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 82.0,
-        "dur": 2.0,
-        "shows": "تانجيرو بأقراط الهانافودا (إعلان رسمي)"
+        "start": 82.5,
+        "dur": 1.9,
+        "shows": "تانجيرو بأقراط الهانافودا"
       },
       {
         "url": "https://www.tiktok.com/@pxrttox/video/7370776907568123169",
-        "start": 10.5,
-        "dur": 1.5,
-        "shows": "يوريتشي (رسوم معجبين)",
+        "start": 10.6,
+        "dur": 1.4,
+        "shows": "يوريتشي",
         "official": false
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 70.0,
-        "dur": 3.0,
-        "shows": "تانجيرو يضرب بسيفه (إعلان رسمي)"
+        "start": 70.3,
+        "dur": 1.7,
+        "shows": "تانجيرو يضرب بسيفه"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 38.0,
+        "start": 39.2,
         "dur": 2.0,
-        "shows": "تانجيرو يركض (إعلان رسمي)"
+        "shows": "تانجيرو وإخوته"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 80.0,
-        "dur": 2.0,
-        "shows": "تانجيرو (إعلان رسمي)"
+        "start": 80.5,
+        "dur": 1.4,
+        "shows": "تانجيرو"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 56.0,
-        "dur": 2.0,
-        "shows": "تانجيرو بندبة الجبهة (إعلان رسمي)"
+        "start": 56.2,
+        "dur": 1.6,
+        "shows": "تانجيرو بندبته"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 40.0,
-        "dur": 2.0,
-        "shows": "تانجيرو وعائلته (إعلان رسمي)"
+        "start": 41.0,
+        "dur": 0.8,
+        "shows": "إخوة تانجيرو"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 28.3,
+        "dur": 1.6,
+        "shows": "يد تانجيرو"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
         "start": 24.0,
-        "dur": 2.0,
-        "shows": "سيف تانجيرو في الثلج (إعلان رسمي)"
+        "dur": 1.2,
+        "shows": "سيف تانجيرو الأسود في الثلج"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
         "start": 40.0,
-        "dur": 2.0,
-        "shows": "سيف نيتشيرين (إعلان رسمي)"
+        "dur": 1.4,
+        "shows": "سيف نيتشيرين"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 50.0,
-        "dur": 2.0,
-        "shows": "نيزوكو أخت تانجيرو (إعلان رسمي)"
+        "start": 50.2,
+        "dur": 1.4,
+        "shows": "نيزوكو"
       }
     ],
     "footage_match": "تانجيرو وأقراطه وندبته وعائلته وسيفه في كل جملة عنه (رسمي)؛ لقطة قصيرة ليوريتشي عند ذكره؛ السيف الأسود عند نظرية تنفس الشمس.",
@@ -806,78 +812,72 @@
       {
         "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
         "start": 6.0,
-        "dur": 2.5,
-        "shows": "إيمو وعينه الحمراء (لقطة الحلقة 1118 من معجبين)",
+        "dur": 2.9,
+        "shows": "إيمو ثم عينه الحمراء",
         "official": false
       },
       {
         "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
-        "start": 0.0,
-        "dur": 2.0,
-        "shows": "لوفي بشكل نيكا (توي الرسمي)"
+        "start": 1.0,
+        "dur": 1.0,
+        "shows": "لوفي بشكل نيكا"
       },
       {
         "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
-        "start": 14.0,
-        "dur": 1.0,
-        "shows": "قاعة عرش إيمو (معجبين)",
+        "start": 20.0,
+        "dur": 1.4,
+        "shows": "إيمو على العرش",
         "official": false
       },
       {
         "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
         "start": 47.0,
-        "dur": 3.0,
-        "shows": "نيكا يضحك (رسمي)"
+        "dur": 2.6,
+        "shows": "نيكا يضحك"
       },
       {
         "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
-        "start": 20.0,
-        "dur": 1.5,
-        "shows": "عين إيمو (معجبين)",
-        "official": false
-      },
-      {
-        "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
-        "start": 12.0,
-        "dur": 1.5,
-        "shows": "الحكماء الخمسة (معجبين)",
+        "start": 13.2,
+        "dur": 0.9,
+        "shows": "أحد الحكماء الخمسة",
         "official": false
       },
       {
         "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
-        "start": 71.0,
+        "start": 14.3,
+        "dur": 5.0,
+        "shows": "نيكا يقاتل"
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 2.0,
+        "dur": 2.5,
+        "shows": "نيكا يقاتل"
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 36.3,
+        "dur": 2.4,
+        "shows": "انفجار هاكي نيكا"
+      },
+      {
+        "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
+        "start": 21.3,
+        "dur": 0.9,
+        "shows": "عين إيمو",
+        "official": false
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 71.3,
         "dur": 3.0,
-        "shows": "نيكا (رسمي)"
+        "shows": "نيكا يضحك"
       },
       {
         "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
-        "start": 36.0,
-        "dur": 2.0,
-        "shows": "انفجار هاكي نيكا (رسمي)"
-      },
-      {
-        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
-        "start": 25.0,
-        "dur": 1.5,
-        "shows": "نيكا العملاق (رسمي)"
-      },
-      {
-        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
-        "start": 14.0,
-        "dur": 3.0,
-        "shows": "نيكا يقفز (رسمي)"
-      },
-      {
-        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
-        "start": 26.0,
-        "dur": 1.5,
-        "shows": "نيكا (رسمي)"
-      },
-      {
-        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
-        "start": 18.0,
-        "dur": 1.5,
-        "shows": "نيكا (رسمي)"
+        "start": 26.3,
+        "dur": 0.9,
+        "shows": "نيكا"
       }
     ],
     "footage_match": "إيمو يظهر عند ذكره (لقطات قصيرة من الحلقة 1118)، والحكماء الخمسة عند ذكر الحكومة؛ لوفي بشكل نيكا (رسمي من توي) عند ذكر نيكا وجوي بوي والهاكي والسؤال الأخير.",
@@ -939,79 +939,91 @@
     "segments": [
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 14.0,
-        "dur": 2.5,
-        "shows": "غوجو (إعلان رسمي)"
+        "start": 11.4,
+        "dur": 2.0,
+        "shows": "غوجو"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
         "start": 38.0,
-        "dur": 2.0,
-        "shows": "غوجو: «أنا الأقوى» (إعلان رسمي)"
+        "dur": 1.9,
+        "shows": "غوجو: أنا الأقوى"
       },
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
-        "start": 6.0,
-        "dur": 1.5,
-        "shows": "غوجو (رسوم معجبين)",
+        "start": 86.0,
+        "dur": 1.6,
+        "shows": "غوجو يبتسم",
         "official": false
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 20.0,
-        "dur": 2.0,
-        "shows": "ماهوراغا (إعلان رسمي)"
+        "start": 14.5,
+        "dur": 0.9,
+        "shows": "غوجو في سجن الأبعاد"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 19.4,
+        "dur": 1.8,
+        "shows": "ماهوراغا"
       },
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
         "start": 222.0,
-        "dur": 1.5,
-        "shows": "عجلة ماهوراغا (رسوم معجبين)",
-        "official": false
-      },
-      {
-        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 22.0,
-        "dur": 2.5,
-        "shows": "سوكونا يعقد إشارة مجاله (إعلان رسمي)"
-      },
-      {
-        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 38.0,
-        "dur": 2.0,
-        "shows": "ضربات سوكونا القاطعة (إعلان رسمي)"
-      },
-      {
-        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 12.0,
-        "dur": 2.0,
-        "shows": "غوجو في ضوء أزرق (إعلان رسمي)"
-      },
-      {
-        "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
-        "start": 328.0,
-        "dur": 1.5,
-        "shows": "ضربة حمراء تقطع المكان (رسوم معجبين)",
+        "dur": 1.4,
+        "shows": "عجلة ماهوراغا",
         "official": false
       },
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
         "start": 348.0,
-        "dur": 1.5,
-        "shows": "غوجو مصاب (رسوم معجبين)",
+        "dur": 1.4,
+        "shows": "ماهوراغا يزأر",
         "official": false
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 24.5,
-        "dur": 1.5,
-        "shows": "لهب سوكونا (إعلان رسمي)"
+        "start": 21.9,
+        "dur": 1.1,
+        "shows": "سوكونا يعقد إشارة مجاله"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 28.5,
+        "dur": 2.5,
+        "shows": "إصبع سوكونا"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 38.4,
+        "dur": 1.4,
+        "shows": "ضربات سوكونا"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 23.0,
+        "dur": 2.2,
+        "shows": "لهب سوكونا يدمر المكان"
+      },
+      {
+        "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
+        "start": 88.0,
+        "dur": 1.6,
+        "shows": "سوكونا بعينين حمراوين",
+        "official": false
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 17.0,
+        "dur": 1.0,
+        "shows": "إصبع سوكونا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
         "start": 36.0,
-        "dur": 2.0,
-        "shows": "عين غوجو الزرقاء (إعلان رسمي)"
+        "dur": 0.9,
+        "shows": "عين غوجو"
       }
     ],
     "footage_match": "الخطاف وغوجو: لقطات غوجو الرسمية؛ ماهوراغا وعجلته عند ذكر التكيّف؛ إشارة مجال سوكونا وضرباته عند ذكر المجال والضربة؛ رسوم معجبين قصيرة لضربة قطع المكان؛ عين غوجو في السؤال الأخير.",
@@ -1073,61 +1085,81 @@
     "segments": [
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 22.0,
-        "dur": 3.0,
-        "shows": "سوكونا يعقد إشارة مجاله (إعلان رسمي)"
+        "start": 21.9,
+        "dur": 1.1,
+        "shows": "سوكونا يعقد إشارة مجاله"
+      },
+      {
+        "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
+        "start": 88.0,
+        "dur": 1.6,
+        "shows": "سوكونا بعينين حمراوين",
+        "official": false
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
-        "start": 10.0,
-        "dur": 3.5,
-        "shows": "إصبع سوكونا الملعون (إعلان رسمي)"
+        "start": 10.5,
+        "dur": 2.9,
+        "shows": "إصبع سوكونا الملعون"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 17.0,
+        "dur": 2.4,
+        "shows": "إصبع سوكونا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 24.5,
-        "dur": 1.5,
-        "shows": "لهب سوكونا كالسهم (إعلان رسمي)"
+        "start": 23.0,
+        "dur": 2.2,
+        "shows": "لهب سوكونا كالسهم"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 38.0,
-        "dur": 2.0,
-        "shows": "ضربات سوكونا (إعلان رسمي)"
+        "start": 38.4,
+        "dur": 1.4,
+        "shows": "ضربات سوكونا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
-        "start": 16.0,
-        "dur": 2.5,
-        "shows": "إصبع سوكونا يكبر (إعلان رسمي)"
+        "start": 23.5,
+        "dur": 2.4,
+        "shows": "إصبع سوكونا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
-        "start": 28.0,
-        "dur": 3.5,
-        "shows": "إصبع سوكونا (إعلان رسمي)"
+        "start": 28.5,
+        "dur": 3.4,
+        "shows": "إصبع سوكونا"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 57.0,
+        "dur": 0.9,
+        "shows": "إصبع سوكونا مع عبارة «الشبح ذو الوجهين»"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
         "start": 58.0,
-        "dur": 2.0,
-        "shows": "إيتادوري وعبارة «الشبح ذو الوجهين ملك اللعنات» (إعلان رسمي)"
-      },
-      {
-        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
-        "start": 24.0,
-        "dur": 2.0,
-        "shows": "إصبع سوكونا (إعلان رسمي)"
+        "dur": 0.9,
+        "shows": "إيتادوري وعاء سوكونا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 20.0,
-        "dur": 2.0,
-        "shows": "ماهوراغا، تابع سوكونا (إعلان رسمي)"
+        "start": 19.4,
+        "dur": 1.8,
+        "shows": "ماهوراغا تابع سوكونا"
+      },
+      {
+        "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
+        "start": 348.0,
+        "dur": 1.4,
+        "shows": "ماهوراغا يزأر",
+        "official": false
       }
     ],
     "footage_match": "كل اللقطات رسمية: سوكونا وإشارة مجاله ولهبه عند ذكر الأسطورة والقوس؛ أصابعه الملعونة (آثاره) عند ذكر الكتاب القديم والتماثيل؛ إيتادوري مع عبارة «الشبح ذو الوجهين» عند نظرية التوأم.",
-    "source_credit": "",
+    "source_credit": "لقطات معجبين: https://www.tiktok.com/@satoruhm2/video/7492312112102968581 (satoruhm2). الحقوق لأصحاب العمل.",
     "footage_checked": true
   },
   {
@@ -1141,7 +1173,7 @@
     "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
     "source_url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
     "accent": "#ff6b5e",
-    "speech": "شانكس الإمبراطور الوحيد في التاريخ اللي ما أكل فاكهة شيطان. تخيّل إنك تخيف كايدو وبيغ مام بلا فاكهة. مكافأته كانت الأقل بين الأباطرة، واليوم الأعلى. وهو أول من استعمل هاكي الملوك. وفيلم ريد لمّح إنه من عائلة فيغارلاند قبل التأكيد بسنتين ونص. صديق لوفي أو عدوه؟ اكتب رأيك.",
+    "speech": "شانكس الإمبراطور الوحيد اللي ما أكل فاكهة شيطان. تخيّل إنك تخيف كايدو وبيغ مام بلا فاكهة. مكافأته كانت الأقل بين الأباطرة، واليوم الأعلى. وهو أول من استعمل هاكي الملوك. وفيلم ريد لمّح إنه من عائلة فيغارلاند. صديق لوفي أو عدوه؟ اكتب رأيك.",
     "title": "One Piece ون بيس | أسرار شانكس التي لا يعرفها أحد",
     "description": "One Piece ون بيس | أسرار شانكس التي لا يعرفها أحد\nما أسرار شانكس التي لا يعرفها أغلب المتابعين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين، مع التمييز بين المؤكد والنظرية.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#OnePiece #ون_بيس #شرح_أنمي",
     "tags": [
@@ -1185,87 +1217,117 @@
     "segments": [
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 52.0,
-        "dur": 3.0,
-        "shows": "شانكس (إعلان فيلم ريد الرسمي)"
+        "start": 51.9,
+        "dur": 2.9,
+        "shows": "شانكس"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 25.0,
-        "dur": 1.5,
-        "shows": "شانكس (رسمي)"
+        "start": 25.1,
+        "dur": 0.8,
+        "shows": "شانكس"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 45.0,
-        "dur": 1.5,
-        "shows": "بيغ مام (رسمي)"
+        "start": 44.9,
+        "dur": 0.9,
+        "shows": "بيغ مام"
       },
       {
         "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
         "start": 54.0,
-        "dur": 3.0,
-        "shows": "كايدو بشكل التنين (توي الرسمي)"
+        "dur": 2.6,
+        "shows": "كايدو بشكل التنين"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 41.0,
-        "dur": 1.5,
-        "shows": "عين شانكس (رسمي)"
+        "start": 40.9,
+        "dur": 0.9,
+        "shows": "عين شانكس"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 39.0,
-        "dur": 1.5,
-        "shows": "لوفي وأوتا صغيرين (رسمي)"
+        "start": 38.9,
+        "dur": 0.9,
+        "shows": "لوفي وأوتا صغيرين"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 40.0,
-        "dur": 1.5,
-        "shows": "قرية لوفي (رسمي)"
+        "start": 39.9,
+        "dur": 0.9,
+        "shows": "قرية لوفي"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 32.0,
-        "dur": 3.0,
-        "shows": "أوتا ابنة شانكس (رسمي)"
+        "start": 31.9,
+        "dur": 0.9,
+        "shows": "أوتا ابنة شانكس"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 16.0,
-        "dur": 1.0,
-        "shows": "أوتا (رسمي)"
+        "start": 33.9,
+        "dur": 1.9,
+        "shows": "أوتا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 26.0,
-        "dur": 1.5,
-        "shows": "لوفي وأوتا (رسمي)"
+        "start": 15.9,
+        "dur": 0.9,
+        "shows": "أوتا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 23.0,
-        "dur": 1.5,
-        "shows": "لوفي وأوتا (رسمي)"
+        "start": 18.9,
+        "dur": 0.9,
+        "shows": "أوتا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 29.0,
-        "dur": 1.0,
-        "shows": "لوفي (رسمي)"
+        "start": 22.9,
+        "dur": 1.9,
+        "shows": "لوفي وأوتا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 18.0,
-        "dur": 1.0,
-        "shows": "لوفي يبتسم (رسمي)"
+        "start": 28.9,
+        "dur": 0.9,
+        "shows": "لوفي"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-        "start": 47.0,
-        "dur": 1.0,
-        "shows": "لوفي (رسمي)"
+        "start": 17.9,
+        "dur": 0.9,
+        "shows": "لوفي يبتسم"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 46.9,
+        "dur": 0.9,
+        "shows": "لوفي"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 26.9,
+        "dur": 0.9,
+        "shows": "أوتا"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 27.9,
+        "dur": 0.9,
+        "shows": "أوتا"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 45.9,
+        "dur": 0.9,
+        "shows": "أوتا"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 29.9,
+        "dur": 0.9,
+        "shows": "جزيرة الموسيقى في فيلم ريد"
       }
     ],
     "footage_match": "كل اللقطات رسمية: شانكس في الخطاف والمكافأة والهاكي؛ بيغ مام وكايدو عند ذكرهما؛ أوتا ابنته عند جملة فيلم ريد وعائلة فيغارلاند؛ لوفي في السؤال الأخير.",
@@ -1675,7 +1737,7 @@
     "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
     "source_url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
     "accent": "#ff6b5e",
-    "speech": "أسماء شخصيات قاتل الشياطين تكشف حقيقتها. تخيّل إن اسمك يحكي قصتك. أغاتسوما، لقب زينيتسو، يعني زوجتي. وإينو في اسم إينوسكي تشبه كلمة الخنزير البري. ورينغوكو يعني المطهر. وإنمو من الكابوس والحلم. ومو في اسم مويتشيرو تعني العدم. أي اسم أعجبك؟ اكتب رأيك.",
+    "speech": "أسماء شخصيات قاتل الشياطين تكشف حقيقتها فعلاً. أغاتسوما، لقب زينيتسو، يعني زوجتي. وإينو في اسم إينوسكي تشبه كلمة الخنزير البري. ورينغوكو يعني المطهر. وإنمو من الكابوس والحلم. ومو في اسم مويتشيرو تعني العدم. أي اسم أعجبك؟ اكتب رأيك.",
     "footage_checked": true,
     "footage_match": "كل اللقطات رسمية، وكل شخصية تظهر عند ذكر اسمها: زينيتسو، إينوسكي، رينغوكو، إنمو، مويتشيرو؛ بطاقات الأسماء واجتماع الهاشيرا في الافتتاح.",
     "title": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات",
@@ -1720,63 +1782,81 @@
     "segments": [
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 48.0,
-        "dur": 2.0,
-        "shows": "بطاقة اسم تينغن (إعلان رسمي)"
+        "start": 49.0,
+        "dur": 0.9,
+        "shows": "تينغن ببطاقة اسمه"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 18.0,
-        "dur": 3.0,
-        "shows": "اجتماع الهاشيرا (رسمي)"
+        "start": 18.5,
+        "dur": 2.5,
+        "shows": "اجتماع الهاشيرا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 60.0,
-        "dur": 1.5,
-        "shows": "برق زينيتسو (رسمي)"
+        "start": 61.3,
+        "dur": 1.4,
+        "shows": "برق زينيتسو"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 62.0,
-        "dur": 2.0,
-        "shows": "زينيتسو (رسمي)"
+        "start": 63.0,
+        "dur": 0.8,
+        "shows": "زينيتسو"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 60.2,
+        "dur": 0.9,
+        "shows": "إينوسكي"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 62.0,
-        "dur": 3.0,
-        "shows": "إينوسكي (رسمي)"
+        "start": 61.5,
+        "dur": 2.5,
+        "shows": "إينوسكي"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 52.0,
-        "dur": 3.0,
-        "shows": "رينغوكو ولهبه (رسمي)"
+        "start": 52.3,
+        "dur": 1.0,
+        "shows": "رينغوكو"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 26.0,
-        "dur": 2.0,
-        "shows": "بطاقة اسم إنمو (رسمي)"
+        "start": 54.3,
+        "dur": 1.6,
+        "shows": "رينغوكو ولهبه"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 28.0,
-        "dur": 2.0,
-        "shows": "إنمو (رسمي)"
+        "start": 30.3,
+        "dur": 1.4,
+        "shows": "إنمو"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 58.3,
+        "dur": 0.9,
+        "shows": "إنمو"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
         "start": 69.5,
-        "dur": 2.5,
-        "shows": "مويتشيرو (رسمي)"
+        "dur": 1.9,
+        "shows": "مويتشيرو"
       },
       {
-        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 72.0,
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 21.5,
         "dur": 2.0,
-        "shows": "تانجيرو (رسمي)"
+        "shows": "اجتماع الهاشيرا"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 23.5,
+        "dur": 3.0,
+        "shows": "اجتماع الهاشيرا"
       }
     ],
     "source_credit": ""
