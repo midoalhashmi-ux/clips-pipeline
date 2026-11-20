@@ -11,9 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Test the Cloudflare token (silent, prints no project names)
+      - name: Diagnose the Cloudflare token (prints only shape and the API verdict, never the value)
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || 'bde373bccc926d9805939154b3d59a8b' }}
+          T: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          if npx --yes wrangler@3 pages project list > /dev/null 2>&1; then echo "CLOUDFLARE_OK"; else echo "CLOUDFLARE_FAILED"; exit 1; fi
+          echo "length=${#T}"
+          if [[ "$T" =~ [[:space:]] ]]; then echo "has_whitespace=yes"; else echo "has_whitespace=no"; fi
+          if [[ "$T" =~ ^[0-9a-fA-F]+$ ]]; then echo "all_hex=yes"; else echo "all_hex=no"; fi
+          if [[ "$T" == Bearer* ]]; then echo "starts_with_Bearer=yes"; else echo "starts_with_Bearer=no"; fi
+          R=$(curl -s -H "Authorization: Bearer ${T}" https://api.cloudflare.com/client/v4/user/tokens/verify || true)
+          echo "$R" | python3 -c "import sys,json
+try:
+    d=json.load(sys.stdin)
+    print('api_success=',d.get('success'))
+    print('api_status=',(d.get('result') or {}).get('status'))
+    print('api_errors=',[e.get('message') for e in d.get('errors',[])])
+except Exception as e:
+    print('api_unreadable')"
