@@ -35,7 +35,11 @@ def audio_report(src, name):
     try:
         from faster_whisper import WhisperModel
         lines.append("\n# الكلام بتوقيته (بداية-نهاية بالثواني)")
-        segs, info = WhisperModel("small", device="cpu", compute_type="int8").transcribe(str(src), vad_filter=True)
+        import numpy as np  # نقرأ الصوت بـ ffmpeg مباشرة، فلا نعتمد على مكتبة av (اختلاف إصداراتها أفشل القراءة)
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(src), "-vn", "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
+            capture_output=True, check=True).stdout
+        audio = np.frombuffer(raw, dtype=np.float32)
+        segs, info = WhisperModel("small", device="cpu", compute_type="int8").transcribe(audio, vad_filter=True)
         lines.append(f"# اللغة: {info.language}")
         lines += [f"{sg.start:6.1f}-{sg.end:6.1f}  {sg.text.strip()}" for sg in segs]
     except Exception as e:
