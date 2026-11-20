@@ -26,6 +26,17 @@ def check(it):
         for sg in it.get("segments", []):
             if not str(sg.get("shows", "")).strip():
                 errs.append("كل مقطع في segments يحتاج وصف shows لما يظهر فيه")
+        # طلب المالك 20 نوفمبر 2026: اللقطات غير الرسمية خفيفة وقليلة (official=false)
+        segs = it.get("segments", [])
+        unofficial = [float(sg.get("dur", 0)) for sg in segs if sg.get("official", True) is False]
+        if unofficial:
+            total = sum(float(sg.get("dur", 0)) for sg in segs) or 1.0
+            if max(unofficial) > 3.5:
+                errs.append("لقطة غير رسمية أطول من 3.5 ثانية")
+            if sum(unofficial) > 9 or sum(unofficial) / total > 0.3:
+                errs.append("اللقطات غير الرسمية تتجاوز 9 ثوانٍ أو 30% من المقطع")
+            if not str(it.get("source_credit", "")).strip():
+                errs.append("لقطات غير رسمية بلا source_credit (رابط المقطع وناشره)")
         for fld in ("speech", "speech_end"):
             if SOURCE_WORDS.search(it.get(fld, "")):
                 errs.append(f"{fld} يذكر مصدر المعلومة (فصل أو حلقة أو مجلد أو مانغا)؛ تُروى حقيقة مباشرة")
