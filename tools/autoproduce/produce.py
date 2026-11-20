@@ -160,7 +160,8 @@ def build_montage(item, d, target=None):
         out = d / f"_seg{i}.mp4"
         # لا نخرج عن النافذة المراجَعة أبداً: الإطالة تكون بإبطاء خفيف للّقطة نفسها، والتقصير بقصّها
         dur = float(seg["dur"]) * min(factor, 1.0)
-        slow = f"setpts={factor:.3f}*PTS," if factor > 1.0 else ""
+        # تصفير توقيت كل لقطة يمنع اختلال تزامن الكتابة بين المصادر المختلفة
+        slow = f"setpts=(PTS-STARTPTS)*{max(factor, 1.0):.3f},"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{float(seg['start']):.2f}", "-t", f"{dur:.2f}",
             "-i", str(cache[url]), "-vf", f"{slow}scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30",
             "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", str(out)], check=True)
@@ -168,7 +169,9 @@ def build_montage(item, d, target=None):
     lst = d / "_montage.txt"
     lst.write_text("\n".join(f"file '{p}'" for p in parts), encoding="utf-8")
     montage = d / "source.mp4"
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(montage)], check=True)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
+        "-vf", "setpts=N/(30*TB),fps=30", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p",
+        str(montage)], check=True)
     for p in [*parts, *cache.values(), lst]:
         p.unlink()
     return montage
