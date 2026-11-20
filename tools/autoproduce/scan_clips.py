@@ -1,6 +1,6 @@
 """«عين» الخط على المقاطع المرشحة (20 نوفمبر 2026): ينزّل كل رابط في scan_jobs.json على خادم الإنتاج،
 ويفحص دقته، ويصنع لوحة مصغّرات (لقطة كل ثانية مختومة برقمها) ليختار Claude نوافذ تظهر فيها الشخصية المذكورة.
-المخرجات في scans_out/: <name>.jpg و<name>.json (الدقة والمدة والخطأ إن وُجد)."""
+المخرجات في scans_out/: <name>.jpg و<name>.json (الدقة والمدة والخطأ إن وُجد)، و<name>_audio.txt مع "audio": true."""
 import json, subprocess, sys
 from pathlib import Path
 
@@ -16,6 +16,31 @@ def probe(p):
     d = json.loads(r.stdout or "{}")
     s = (d.get("streams") or [{}])[0]
     return s.get("width", 0), s.get("height", 0), float((d.get("format") or {}).get("duration", 0) or 0)
+
+
+def audio_report(src, name):
+    """أذن الخط (طلب المالك 20 نوفمبر 2026، لحظات صوت الأنمي): مستوى الصوت كل نصف ثانية، ونص الكلام بتوقيته
+    (faster-whisper إن توفّر)، ليختار Claude لحظة قصيرة تطابق الجملة (اسم تقنية، صرخة، ضربة) دون أن يسمع."""
+    lines = [f"# {name}: مستوى الصوت كل 0.5 ثانية (dB) — الأعلى = ضربة أو صرخة"]
+    log = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(src), "-vn", "-af",
+        "aresample=16000,asetnsamples=n=8000,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level:file=-",
+        "-f", "null", "-"], capture_output=True, text=True).stdout
+    t = None
+    for ln in log.splitlines():
+        if "pts_time:" in ln:
+            t = float(ln.split("pts_time:")[1].split()[0])
+        elif "RMS_level=" in ln and t is not None:
+            v = ln.split("=")[1]
+            lines.append(f"{t:6.1f}  {'-inf' if 'inf' in v else f'{float(v):.0f}'}")
+    try:
+        from faster_whisper import WhisperModel
+        lines.append("\n# الكلام بتوقيته (بداية-نهاية بالثواني)")
+        segs, info = WhisperModel("small", device="cpu", compute_type="int8").transcribe(str(src), vad_filter=True)
+        lines.append(f"# اللغة: {info.language}")
+        lines += [f"{sg.start:6.1f}-{sg.end:6.1f}  {sg.text.strip()}" for sg in segs]
+    except Exception as e:
+        lines.append(f"\n# تعذّر نص الكلام: {str(e)[:150]}")
+    (OUT / f"{name}_audio.txt").write_text("\n".join(lines), encoding="utf-8")
 
 
 def scan(job):
@@ -54,6 +79,8 @@ def scan(job):
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", vf, "-frames:v", "1", "-q:v", "6",
                         str(OUT / f"{name}.jpg")], check=True)
         meta["seconds_per_tile"] = step
+        if job.get("audio"):
+            audio_report(src, name)
     except Exception as e:
         meta["error"] = str(e)[:300]
     finally:

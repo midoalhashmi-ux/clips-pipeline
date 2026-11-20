@@ -73,11 +73,14 @@ jobs:
           for v in tools/autoproduce/out/*/video-youtube.mp4; do
             n=$(basename "$(dirname "$v")")
             ffmpeg -y -loglevel error -i "$v" -vf "fps=1,scale=-2:240,drawtext=fontfile=tools/autoproduce/fonts/Cairo-Variable.ttf:text='%{eif\:n\:d}':x=6:y=6:fontsize=26:fontcolor=yellow:box=1:boxcolor=black@0.6,tile=10x5" -frames:v 1 -q:v 5 "qa_out/$n.jpg" || true
+            # عينات التجربة (مفتاح ينتهي بـ _beat أو _preview) تُحفظ فيديو كاملاً ليسمعها المالك قبل الاعتماد؛ لا تُنشر
+            case "$n" in *_beat|*_preview) cp "$(dirname "$v")/video-tiktok.mp4" "qa_out/$n.mp4" 2>/dev/null || true ;; esac
           done
           git config user.name "qa-bot"
           git config user.email "qa-bot@users.noreply.github.com"
           if git fetch -q origin scans 2>/dev/null; then git worktree add -q ../qb origin/scans -B scans; else git worktree add -q --orphan -b scans ../qb; fi
           mkdir -p ../qb/qa && cp qa_out/*.jpg ../qb/qa/ 2>/dev/null || true
+          mkdir -p ../qb/previews && cp qa_out/*.mp4 ../qb/previews/ 2>/dev/null || true
           mkdir -p ../qb/voices && cp tools/autoproduce/outro_cache/voice-*.wav ../qb/voices/ 2>/dev/null || true
           cd ../qb && git add -A && (git commit -q -m "QA sheets" && git pull -q --rebase origin scans && git push -q origin scans) || echo "nothing new"
       - uses: actions/upload-artifact@v4

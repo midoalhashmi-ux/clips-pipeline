@@ -455,6 +455,67 @@ def make_voice_segments(it, d, a, wav):
     return [(it["speech"], t0, t1), (it["speech_end"], t2, t3)]
 
 
+# لحظات صوت الأنمي (طلب المالك 20 نوفمبر 2026): يتوقف صوتنا بعد جملة، فتُسمع لحظة قصيرة من الأنمي بصوتها
+# (جملة شهيرة، صرخة، ضربة) ثم يكمل الشرح. اختيارية لكل بند عبر `beats`، وحدودها يفحصها seo_check.py:
+# لحظتان كحد أقصى، كل واحدة 3 ثوانٍ، ومجموعها 5 ثوانٍ، ومن مصادر رسمية فقط. لا صوت أنمي خلفيةً طوال المقطع.
+def sentence_ends(speech, wav):
+    """أزمنة نهايات الجمل في الصوت: موضع تقديري بنسبة الحروف، ثم أقرب وقفة مكتشفة فعلاً."""
+    parts = [p for p in re.split(r"(?<=[.؟!?])\s+", speech.strip()) if p]
+    total, dur = sum(len(p) for p in parts) or 1, wav_dur(wav)
+    log = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(wav), "-af", "silencedetect=n=-42dB:d=0.12", "-f", "null", "-"],
+        capture_output=True, text=True).stderr
+    starts = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", log)]
+    ends = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", log)]
+    mids = [(x + y) / 2 for x, y in zip(starts, ends)]
+    out, acc = [], 0
+    for p in parts:
+        acc += len(p); est = dur * acc / total
+        out.append(min(mids, key=lambda m: abs(m - est)) if mids else est)
+    return out
+
+
+def _norm_cut(src, start, length, dst, beat=False):
+    """يقصّ جزءاً بتنسيق موحّد (1080x1920، 30 إطاراً، صوت أحادي 44.1 كيلوهرتز) ليُدمج بلا اختلال."""
+    vf = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,format=yuv420p"
+    af = "aresample=44100"
+    if beat:  # لحظة الأنمي: مستوى قريب من صوتنا، مع دخول وخروج ناعمين
+        af = f"loudnorm=I=-16:TP=-1.5,afade=t=in:d=0.08,afade=t=out:st={max(0.0, length - 0.2):.2f}:d=0.2,aresample=44100"
+    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start:.3f}"] + (["-t", f"{length:.3f}"] if length else []) + [
+        "-i", str(src), "-vf", vf, "-af", af, "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+        "-c:a", "aac", "-b:a", "160k", "-ac", "1", str(dst)]
+    subprocess.run(cmd, check=True)
+
+
+def insert_beats(it, d, video, wav):
+    beats = sorted(it.get("beats") or [], key=lambda b: int(b["after"]))
+    if not beats:
+        return
+    ends, vdur = sentence_ends(it["speech"], wav), media_dur(video)
+    pieces, cur, cache = [], 0.0, {}
+    for i, b in enumerate(beats):
+        t = min(ends[int(b["after"]) - 1] + 0.05, vdur)
+        a = d / f"_bpart{i}.mp4"; _norm_cut(video, cur, t - cur, a); pieces.append(a)
+        url = b.get("url") or it["source_url"]
+        if url not in cache:
+            src = d / f"_bsrc{len(cache)}.mp4"; fetch_source({"source_url": url}, src); check_quality(src)
+            if not has_audio(src):
+                raise SystemExit(f"لحظة الأنمي بلا صوت: {url}")
+            cache[url] = src
+        c = d / f"_beat{i}.mp4"; _norm_cut(cache[url], float(b["start"]), float(b["dur"]), c, beat=True); pieces.append(c)
+        cur = t
+    tail = d / "_btail.mp4"; _norm_cut(video, cur, None, tail); pieces.append(tail)
+    n = len(pieces)
+    f = "".join(f"[{k}:v][{k}:a]" for k in range(n)) + f"concat=n={n}:v=1:a=1[v][a]"
+    tmp = d / "_beats_out.mp4"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *sum((["-i", str(p)] for p in pieces), []),
+        "-filter_complex", f, "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+        "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-ac", "1", str(tmp)], check=True)
+    tmp.replace(video)
+    for p in [*pieces, *cache.values()]:
+        p.unlink()
+    print("لحظات الأنمي:", ", ".join(f"بعد الجملة {b['after']} ({b['dur']}ث)" for b in beats))
+
+
 def produce_item(it, a):
     segs = None
     d = OUT / f"{it['date']}-{it['key']}"
@@ -493,6 +554,8 @@ def produce_item(it, a):
             src = d / "source.mp4"; fetch_source(it, src); check_quality(src)
     build_video(src, wav, d / "video.mp4", {**meta, **{k: it[k] for k in ("key", "display_title", "english_title", "accent", "clip_start", "audio_mode", "tail") if k in it},
         **({"clip_start": 0.0} if it.get("segments") else {})}, d, segs)
+    if it.get("beats") and not it.get("speech_end"):
+        insert_beats(it, d, d / "video.mp4", wav)
     (d / "meta.txt").write_text(
         f"العنوان:\n{meta['title']}\n\nالوصف:\n{meta['description']}\n\nالوسوم:\n{', '.join(meta['tags'])}\n\n"
         f"تعليق المنصات الأخرى:\n{meta['short_caption']}\n\nالنص المنطوق:\n{meta.get('speech','')}\n"

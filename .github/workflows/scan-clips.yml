@@ -26,6 +26,7 @@ jobs:
           tar -xf /tmp/ff.tar.xz -C /tmp && sudo cp /tmp/ffmpeg-master-latest-linux64-gpl/bin/ff* /usr/local/bin/ && ffmpeg -version | head -1
           (sudo timeout 120 apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 update -qq && sudo timeout 180 apt-get install -y -qq --no-install-recommends libraqm0 libfribidi0) || echo "apt skipped"
           pip install -q yt-dlp pillow
+          pip install -q faster-whisper || echo "faster-whisper skipped"
           python -c "from PIL import features; assert features.check('raqm'), 'Arabic text shaping (raqm) missing'; print('raqm ok')"
       - name: Download candidates and build contact sheets
         run: python tools/autoproduce/scan_clips.py
@@ -38,5 +39,5 @@ jobs:
           else
             git worktree add -q --orphan -b scans ../sb
           fi
-          mkdir -p ../sb/scans && cp scans_out/*.jpg scans_out/*.json ../sb/scans/ 2>/dev/null || true
+          mkdir -p ../sb/scans && cp scans_out/*.jpg scans_out/*.json scans_out/*.txt ../sb/scans/ 2>/dev/null || true
           cd ../sb && git add -A && (git commit -q -m "Scan sheets" && git push -q origin scans) || echo "nothing new"
