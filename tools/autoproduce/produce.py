@@ -16,7 +16,8 @@ Rich, resonant, charismatic voice. White Saudi (Najdi-neutral) Arabic dialect, n
 In a treated recording studio, he narrates a viral short about an anime secret he truly loves. He has one second to grab a scrolling viewer and must keep them until the end.
 
 ### DIRECTOR'S NOTES
-- Energy: high but controlled, like a movie-trailer narrator who is also a passionate fan. Brisk, flowing pace with no dead air.
+- Energy: high but controlled, like a movie-trailer narrator who is also a passionate fan.
+- Pace: fast-talking, noticeably faster than normal conversation, like the top short-form narrators, yet every word stays clear and natural. Keep pauses very short; the only real pause is the dramatic beat before the reveal.
 - Opening question: punchy and intriguing, with a slight rise; then a short dramatic beat.
 - Build tension sentence by sentence. Just before the key reveal, slow down and drop to a lower, almost whispered tone; then deliver the reveal with weight and a confident smile.
 - Let the emotion follow the meaning: awe for great power, heaviness for loss or death, menace for villains, playful doubt for any sentence with "نظرية", calm certainty for "المؤكد".
@@ -35,9 +36,11 @@ The same Saudi storyteller, warm and friendly, white Saudi dialect.
 
 #### TRANSCRIPT"""
 VOICE_NAME = "Charon"  # الصوت الوحيد المعتمد من المالك (20 نوفمبر 2026): لا يُغيَّر
-# إيقاع المحترفين (طلب المالك 20 نوفمبر 2026: «بطيء، أعطه تسريعاً»): كل صوت يُسرَّع 1.18 على الأقل، وحتى 1.3 إن طال.
-VOICE_TEMPO = 1.18
-MAX_TEMPO = 1.3
+# إيقاع المحترفين (طلب المالك 20 نوفمبر 2026): الصوت كان بطيئاً، لكن التسريع بعد التسجيل يُسمع غير طبيعي (ملاحظة المالك).
+# الحل: أداء سريع من التوجيه نفسه + قصّ الوقفات الطويلة (tighten_pauses) دون لمس طبقة الصوت،
+# وتسريع خفيف لا تلحظه الأذن (حتى 1.08) فقط إن بقي الصوت أطول من الحد.
+VOICE_TEMPO = 1.0
+MAX_TEMPO = 1.08
 
 
 def polish_voice(wav):
@@ -366,7 +369,7 @@ def build_outro(png, wav, out, cap=6.0):
     with wave.open(str(wav)) as w:
         sp = w.getnframes() / w.getframerate()
     tempo = min(MAX_TEMPO, max(VOICE_TEMPO, sp / (cap - 0.5)))  # إيقاع المحترفين، وأكثر إن زاد الصوت عن الحد
-    dur = min(cap, sp / tempo + 0.5)
+    dur = sp / tempo + 0.5  # لا يُقطع صوت الخاتمة أبداً حتى لو تجاوز الحد قليلاً
     bg = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30,setsar=1[bg]"
     fg = "scale=1000:-2:force_original_aspect_ratio=decrease[fg]"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", str(png), "-i", str(wav),
@@ -409,8 +412,17 @@ def wav_dur(path):
         return w.getnframes() / w.getframerate()
 
 
+def tighten_pauses(wav):
+    """يقصّر كل وقفة أطول من 0.35 ثانية إلى 0.22 دون تغيير سرعة الكلام أو طبقته (أسلوب المونتاج الاحترافي)."""
+    tmp = Path(str(wav) + ".t.wav")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-af",
+        "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_duration=0.35:stop_threshold=-42dB:stop_silence=0.22",
+        str(tmp)], check=True)
+    tmp.replace(wav)
+
+
 def fit_wav(src, dst, mx):
-    """يسرّع الصوت بإيقاع المحترفين VOICE_TEMPO دائماً، وأكثر (حتى MAX_TEMPO) إن زاد عن الحد الأقصى بالثواني."""
+    """تسريع خفيف لا تلحظه الأذن (حتى MAX_TEMPO) فقط إن زاد الصوت عن الحد الأقصى بالثواني؛ وإلا يبقى كما هو."""
     dd = wav_dur(src)
     tempo = min(MAX_TEMPO, max(VOICE_TEMPO, dd / mx))
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-af", f"atempo={tempo:.3f}",
@@ -471,6 +483,7 @@ def produce_item(it, a):
                 gemini_voice(meta["speech"], wav)
                 OUTRO_CACHE.mkdir(parents=True, exist_ok=True); shutil.copy(wav, vkey)
             # طلب المالك 20 نوفمبر 2026: إيقاع المحترفين دائماً، والمقطع الشرحي 25 إلى 35 ثانية بالخاتمة
+            tighten_pauses(wav)
             fitted = d / "voice_fit.wav"
             fit_wav(wav, fitted, MAX_MAIN_SECONDS if it.get("format") == "explainer" else 999.0); fitted.replace(wav)
             polish_voice(wav)
