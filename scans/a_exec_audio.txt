@@ -172,5 +172,26 @@
   85.0  -inf
 
 # الكلام بتوقيته (بداية-نهاية بالثواني)
-
-# تعذّر نص الكلام: open() got an unexpected keyword argument 'metadata_errors'
+# اللغة: en
+   1.2-   4.2  I will kill Yuji Itadori myself.
+   5.2-   7.2  Sorry, Itadori.
+  11.2-  12.2  Don't make an exception.
+  16.2-  17.2  Gate closed.
+  18.2-  19.2  I have to fight.
+  20.2-  21.2  Otherwise, I'll just be...
+  23.2-  24.2  a murderer.
+  25.2-  27.2  Let's kick it up a notch, Itadori!
+  28.2-  32.2  This will be the last time you and I will ever curse each other!
+  33.2-  36.2  Itadori, you take it from here.
+  36.2-  38.2  It's starting once again.
+  38.2-  40.2  The world of Heian.
+  40.2-  43.2  The golden age of Jujutsu.
+  44.2-  49.6  Because of me, a lot of people are dead now!
+  49.6-  55.1  Please, I need your power.
+  55.1-  58.1  One of Gojo's students wouldn't go down easily.
+  59.1-  61.1  I can't stay with the others anymore.
+  61.1-  62.1  You can't give up.
+  62.1-  65.1  It was 12 years ago when all the distortions started.
+  66.1-  70.1  Did you think you could go after my little brother and then leave this place alive?
+  71.1-  72.1  Let's go, Rika.
+  76.3-  78.3  Alright then, I guess I'd better not die.
