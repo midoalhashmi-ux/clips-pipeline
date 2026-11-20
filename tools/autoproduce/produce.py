@@ -6,9 +6,46 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "out"
 OUTRO_CACHE = ROOT / "outro_cache"  # صوت الخاتمة المولَّد مسبقاً (ذاكرة سير العمل المؤقتة)
-VOICE_DIRECTION = ("اقرأ النص العربي التالي وحده بصوت رجولي دافئ، بلهجة سعودية بيضاء واضحة. "
-    "أسلوب معلّق محترف لقناة ترشيحات. افتتح بفضول، ثم اشرح بثقة، بجمل سريعة طبيعية. "
-    "لا تقرأ هذه التعليمات ولا تضف أي كلمة أو مؤثر.")
+# توجيه أداء بأسلوب «مخرج صوت» (طلب المالك 20 نوفمبر 2026: صوت سعودي بمشاعر يظنه المشاهد إنساناً حقيقياً).
+# البنية الموصى بها لـ Gemini TTS: ملف الصوت، المشهد، ملاحظات المخرج، ثم النص الحرفي.
+VOICE_DIRECTION = """# AUDIO PROFILE
+A Saudi man in his late twenties, a popular anime storyteller on social media, recording on his own microphone at home.
+Warm, slightly deep, relaxed voice. White Saudi (Najdi-neutral) Arabic dialect, natural everyday pronunciation, never formal classical Arabic.
+
+## SCENE
+Late at night, he is telling a close friend a secret about an anime that most fans missed. Intimate, genuinely excited, human.
+
+### DIRECTOR'S NOTES
+- Opening question: lower, intriguing, as if leaning in; a short natural pause after it.
+- The line that starts with "تخيّل": slower and softer, pulling the listener into the moment.
+- The facts: build energy step by step; stress the one surprising word in each sentence; vary the pace like real conversation, with small breaths and micro-pauses between sentences.
+- Any sentence with "نظرية": a little playful and less certain.
+- Any sentence with "المؤكد": calm and confident.
+- The final question: warm and inviting, you can hear a smile.
+- Sound like a real person, not an announcer and not a robot; no exaggerated drama.
+- Read the Arabic transcript exactly as written, every word, nothing added, nothing skipped. Never read these notes.
+
+#### TRANSCRIPT"""
+OUTRO_DIRECTION = """# AUDIO PROFILE
+The same Saudi storyteller, warm and friendly, white Saudi dialect.
+
+### DIRECTOR'S NOTES
+- A quick, friendly call to action, smiling, like recommending something to a friend. Natural, not salesy.
+- Read the Arabic transcript exactly as written. Never read these notes.
+
+#### TRANSCRIPT"""
+VOICE_NAME = os.environ.get("VOICE_NAME", "Charon")  # الصوت المعتمد من المالك
+
+
+def polish_voice(wav):
+    """معالجة استوديو خفيفة: إزالة الطنين المنخفض، ضغط لطيف، ومستوى صوت مناسب للمنصات."""
+    tmp = Path(str(wav) + ".p.wav")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-af",
+        "highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=10:release=200:makeup=2,loudnorm=I=-16:TP=-1.5:LRA=9",
+        "-ar", "24000", "-ac", "1", str(tmp)], check=True)
+    tmp.replace(wav)
+
+
 SYSTEM = ("أنت كاتب محتوى قصير لقناة ترشيحات أنمي ومسلسلات وأفلام. اكتب بالعربية بلهجة سعودية بيضاء. "
     "التزم بالحقائق المعطاة في synopsis فقط ولا تخترع أي معلومة أو اسم أو حدث؛ إن نقصت المعلومات "
     "فاكتب جملاً عامة صحيحة بلا تفاصيل غير مؤكدة. ممنوع ذكر أي اسم تطبيق أو علامة تجارية؛ "
@@ -36,7 +73,7 @@ def claude_text(item):
 QUOTA = {"out": False}
 
 
-def gemini_voice(speech, wav_path):
+def gemini_voice(speech, wav_path, direction=None):
     if QUOTA["out"]:
         sys.exit("حصة Gemini المجانية اليومية نفدت؛ أعد التشغيل غداً")
     key = os.environ.get("GEMINI_API_KEY")
@@ -44,9 +81,9 @@ def gemini_voice(speech, wav_path):
         sys.exit("GEMINI_API_KEY غير موجود في أسرار المستودع")
     last = None
     for model in ("gemini-3.1-flash-tts-preview", "gemini-2.5-flash-preview-tts"):
-        body = json.dumps({"contents": [{"parts": [{"text": VOICE_DIRECTION + "\n\n" + speech}]}],
+        body = json.dumps({"contents": [{"parts": [{"text": (direction or VOICE_DIRECTION) + "\n" + speech}]}],
             "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": {"voiceConfig": {
-                "prebuiltVoiceConfig": {"voiceName": "Charon"}}}}}).encode()
+                "prebuiltVoiceConfig": {"voiceName": VOICE_NAME}}}}}).encode()
         req = urllib.request.Request(
             f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent", body,
             {"x-goog-api-key": key, "content-type": "application/json"})
@@ -399,6 +436,7 @@ def produce_item(it, a):
             if it.get("format") == "explainer" and wav_dur(wav) > MAX_MAIN_SECONDS:
                 # طلب المالك 20 نوفمبر 2026: المقطع 25 إلى 35 ثانية بالخاتمة؛ يُسرَّع الصوت حتى 1.25 إن طال
                 fitted = d / "voice_fit.wav"; fit_wav(wav, fitted, MAX_MAIN_SECONDS); fitted.replace(wav)
+            polish_voice(wav)
         if it.get("segments"):
             src = build_montage(it, d, target=wav_dur(wav) + 1.0)
         else:
@@ -421,11 +459,11 @@ def produce_item(it, a):
                 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "sine=frequency=500:duration=3",
                     "-ar", "24000", "-ac", "1", str(ow)], check=True)
             else:
-                cached = OUTRO_CACHE / f"{plat}-{hashlib.sha1(text.encode()).hexdigest()[:10]}.wav"
+                cached = OUTRO_CACHE / f"{plat}-v2-{hashlib.sha1(text.encode()).hexdigest()[:10]}.wav"
                 if cached.exists():
                     shutil.copy(cached, ow)
                 else:
-                    gemini_voice(text, ow)
+                    gemini_voice(text, ow, OUTRO_DIRECTION); polish_voice(ow)
                     OUTRO_CACHE.mkdir(parents=True, exist_ok=True)
                     shutil.copy(ow, cached)
         build_outro(ROOT / "outro" / f"{plat}.png", ow, d / f"outro-{plat}.mp4")
