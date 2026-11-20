@@ -106,10 +106,13 @@ def check_quality(path):
         print(f"جودة المصدر {w}x{h} سليمة")
 
 
-def build_montage(item, d):
+def build_montage(item, d, target=None):
     """مقاطع متعددة تناسب القصة (طلب المالك 20 نوفمبر 2026): كل مقطع في `segments` له `url` اختياري (الافتراضي مصدر العمل)
     و`start` و`dur` و`shows` (ما يظهر فيه). تُقصّ وتُدمج بالترتيب بحجم 1920x1080 بلا صوت، ثم تُستعمل كمصدر واحد."""
     cache, parts = {}, []
+    total = sum(float(sg["dur"]) for sg in item["segments"]) or 1.0
+    # تتمدد اللقطات أو تنكمش معاً لتطابق طول الصوت (بين 0.8 و1.25)، فتبقى كل لقطة على جملتها
+    factor = min(1.25, max(0.8, target / total)) if target else 1.0
     for i, seg in enumerate(item["segments"]):
         url = seg.get("url") or item["source_url"]
         if url not in cache:
@@ -117,7 +120,7 @@ def build_montage(item, d):
             fetch_source({"source_url": url}, f); check_quality(f)
             cache[url] = f
         out = d / f"_seg{i}.mp4"
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{float(seg['start']):.2f}", "-t", f"{float(seg['dur']):.2f}",
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{float(seg['start']):.2f}", "-t", f"{float(seg['dur']) * factor:.2f}",
             "-i", str(cache[url]), "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30",
             "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", str(out)], check=True)
         parts.append(out)
@@ -130,17 +133,8 @@ def build_montage(item, d):
     return montage
 
 
-def fetch_telegram(file_id, dest):
-    """مقطع أرسله المالك لبوت صندوق الاستقبال (tg://<file_id>)؛ حد واجهة البوتات 20 ميغابايت."""
-    token = os.environ["TELEGRAM_BOT_TOKEN"]
-    info = json.load(urllib.request.urlopen(f"https://api.telegram.org/bot{token}/getFile?file_id={file_id}", timeout=40))
-    urllib.request.urlretrieve(f"https://api.telegram.org/file/bot{token}/{info['result']['file_path']}", dest)
-
-
 def fetch_source(item, dest):
     url = item["source_url"]
-    if url.startswith("tg://"):
-        return fetch_telegram(url[5:], dest)
     if url.lower().endswith(".mp4") or "theplatform.com" in url:
         urllib.request.urlretrieve(best_rendition(url), dest)
     else:
@@ -402,7 +396,7 @@ def produce_item(it, a):
         else:
             gemini_voice(meta["speech"], wav)
         if it.get("segments"):
-            src = build_montage(it, d)
+            src = build_montage(it, d, target=wav_dur(wav) + 1.0)
         else:
             src = d / "source.mp4"; fetch_source(it, src); check_quality(src)
     build_video(src, wav, d / "video.mp4", {**meta, **{k: it[k] for k in ("key", "display_title", "english_title", "accent", "clip_start", "audio_mode", "tail") if k in it},

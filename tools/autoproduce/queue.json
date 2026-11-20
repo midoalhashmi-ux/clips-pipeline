@@ -571,7 +571,7 @@
     "scheduled": "buffer+metricool 2026-11-18"
   },
   {
-    "enabled": false,
+    "enabled": true,
     "date": "2026-11-22",
     "key": "ds_s04",
     "type": "series",
@@ -579,10 +579,9 @@
     "display_title": "قاتل الشياطين: نظرية تقسم المعجبين",
     "english_title": "Demon Slayer Explained",
     "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
-    "source_url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-    "clip_start": 15.0,
+    "source_url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
     "accent": "#ff6b5e",
-    "speech": "هل تانجيرو هو يوريتشي راجع بجسد جديد؟ تخيّل إنك ولد فقير تبيع فحم، وفجأة تلقى نفسك وريث أقوى سيّاف في التاريخ. فيه نظرية مشهورة تقول إن تانجيرو تجسيد ليوريتشي، والدليل الأقراط ورقصة الشمس والعلامة. لكن انتبه لتفصيل: في تصميمه الأول ما كان عنده لا الندبة ولا الأقراط، يعني المؤلفة أضافتها بعدين. واسمه نفسه يحمل الفحم والشفاء، ولقب عائلته كامادو يعني فرن الحطب. وفيه نظرية ثانية تقول إن لون سيفه الأسود علامة على مصيره مع تنفس الشمس. المؤكد إن القصة ما قالتها صراحة، والباب مفتوح. أنت مع النظرية أو ضدها؟ اكتب رأيك، ولو أفادك المقطع لايك ومتابعة.",
+    "speech": "هل تانجيرو تجسيد جديد ليوريتشي؟ تخيّل إن بطل القصة يلبس نفس أقراط أقوى سيّاف في التاريخ. فيه نظرية مشهورة تقول إنه تجسيده، بدليل الأقراط ورقصة الشمس والعلامة. والغريب إن تانجيرو في تصميمه الأول ما كان عنده ندبة ولا أقراط. واسمه يعني الفحم والشفاء، وكامادو يعني فرن الحطب. ونظرية ثانية تربط لون سيفه الأسود بتنفس الشمس. تتوقع النظرية صحيحة؟ اكتب رأيك.",
     "title": "Demon Slayer قاتل الشياطين | هل تانجيرو تجسيد يوريتشي؟",
     "description": "Demon Slayer قاتل الشياطين | هل تانجيرو تجسيد يوريتشي؟\nهل تانجيرو تجسيد يوريتشي؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين، مع التمييز بين المؤكد والنظرية.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#DemonSlayer #قاتل_الشياطين #شرح_أنمي",
     "tags": [
@@ -622,11 +621,83 @@
         }
       }
     },
-    "scheduled": "buffer+metricool 2026-11-22"
+    "scheduled": "buffer+metricool 2026-11-22",
+    "segments": [
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 36.0,
+        "dur": 2.0,
+        "shows": "تانجيرو بأقراطه عن قرب (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 82.0,
+        "dur": 2.0,
+        "shows": "تانجيرو بأقراط الهانافودا (إعلان رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@pxrttox/video/7370776907568123169",
+        "start": 10.5,
+        "dur": 1.5,
+        "shows": "يوريتشي (رسوم معجبين)",
+        "official": false
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 70.0,
+        "dur": 3.0,
+        "shows": "تانجيرو يضرب بسيفه (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 38.0,
+        "dur": 2.0,
+        "shows": "تانجيرو يركض (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 80.0,
+        "dur": 2.0,
+        "shows": "تانجيرو (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 56.0,
+        "dur": 2.0,
+        "shows": "تانجيرو بندبة الجبهة (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 40.0,
+        "dur": 2.0,
+        "shows": "تانجيرو وعائلته (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 24.0,
+        "dur": 2.0,
+        "shows": "سيف تانجيرو في الثلج (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 40.0,
+        "dur": 2.0,
+        "shows": "سيف نيتشيرين (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 50.0,
+        "dur": 2.0,
+        "shows": "نيزوكو أخت تانجيرو (إعلان رسمي)"
+      }
+    ],
+    "footage_match": "تانجيرو وأقراطه وندبته وعائلته وسيفه في كل جملة عنه (رسمي)؛ لقطة قصيرة ليوريتشي عند ذكره؛ السيف الأسود عند نظرية تنفس الشمس.",
+    "source_credit": "لقطة معجبين: https://www.tiktok.com/@pxrttox/video/7370776907568123169 (pxrttox). الحقوق لأصحاب العمل.",
+    "footage_checked": true
   },
   {
     "enabled": false,
-    "date": "2026-11-25",
+    "date": "2026-12-31",
     "key": "ds_s07",
     "type": "series",
     "format": "explainer",
@@ -676,21 +747,21 @@
         }
       }
     },
-    "scheduled": "buffer+metricool 2026-11-25"
+    "scheduled": "buffer+metricool 2026-11-25",
+    "needs_footage_review": "مؤجل: لا لقطات رسمية لموزان ودوما متاحة؛ استُبدل في 25 نوفمبر بمقطع معاني الأسماء (ds_s19)"
   },
   {
-    "enabled": false,
-    "date": "2026-11-20",
+    "enabled": true,
+    "date": "2026-11-26",
     "key": "op_s01",
     "type": "series",
     "format": "explainer",
     "display_title": "ون بيس: الاسم الوحيد الذي يرعب إيمو",
     "english_title": "One Piece Explained",
     "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
-    "source_url": "https://link.theplatform.com/s/NGweTC/media/vrGsxGl9pcCw?formats=MPEG4",
-    "clip_start": 20.0,
+    "source_url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
     "accent": "#ff6b5e",
-    "speech": "ليش إيمو، اللي حكم العالم من الظل ثمانمية سنة، يخاف من نيكا؟ تخيّل إنك ملك العالم، وفيه اسم واحد بس يرعبك. في الفصل ألف ومية وأربعة وستين، روكس يقول إن إيمو ما يخاف فعلياً إلا من اثنين: جوي بوي وديفي جونز. ولهذا الحكومة غيّرت اسم الفاكهة إلى غومو غومو عشان تخفي إنها فاكهة نيكا، وطاردتها ثمانمية سنة لين شكّ الحكماء الخمسة إنها تهرب منهم. ولما انطلقت هاكي جوي بوي في إيغ هيد، إيمو اللي ما اهتز لما اقتحم روكس غرفته، ظهر عليه رد فعل قوي. وفي الفصل ألف ومية وثمانية وتسعين، في إلباف، عرف إنه وصل لحدّه ولعن نيكا. المؤكد إن نيكا رمز التحرير اللي يخافه سادة العالم، أما سر الخوف كامل فما كشفه أودا للحين. تتوقع لوفي يوصل لقوة جوي بوي؟ اكتب رأيك، ولو أفادك المقطع لايك ومتابعة.",
+    "speech": "ليش إيمو، حاكم العالم من الظل، يخاف من نيكا؟ تخيّل إنك ملك العالم، واسم واحد بس يرعبك. روكس قالها: إيمو ما يخاف إلا من جوي بوي وديفي جونز. ولهذا الحكومة سمّت فاكهة نيكا غومو غومو لتخفيها، وطاردتها ثمانمية سنة بلا فايدة. ولما انطلقت هاكي جوي بوي، إيمو اللي ما اهتز أمام روكس اهتز. وفي إلباف لعن نيكا. تتوقع لوفي يوصل لقوة جوي بوي؟ اكتب رأيك.",
     "title": "One Piece ون بيس | لماذا يخاف إيمو من نيكا؟",
     "description": "One Piece ون بيس | لماذا يخاف إيمو من نيكا؟\nلماذا يخاف إيمو من نيكا؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#OnePiece #ون_بيس #شرح_أنمي",
     "tags": [
@@ -730,10 +801,91 @@
         }
       }
     },
-    "scheduled": "buffer+metricool 2026-11-20"
+    "scheduled": "buffer+metricool 2026-11-20",
+    "segments": [
+      {
+        "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
+        "start": 6.0,
+        "dur": 2.5,
+        "shows": "إيمو وعينه الحمراء (لقطة الحلقة 1118 من معجبين)",
+        "official": false
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 0.0,
+        "dur": 2.0,
+        "shows": "لوفي بشكل نيكا (توي الرسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
+        "start": 14.0,
+        "dur": 1.0,
+        "shows": "قاعة عرش إيمو (معجبين)",
+        "official": false
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 47.0,
+        "dur": 3.0,
+        "shows": "نيكا يضحك (رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
+        "start": 20.0,
+        "dur": 1.5,
+        "shows": "عين إيمو (معجبين)",
+        "official": false
+      },
+      {
+        "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
+        "start": 12.0,
+        "dur": 1.5,
+        "shows": "الحكماء الخمسة (معجبين)",
+        "official": false
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 71.0,
+        "dur": 3.0,
+        "shows": "نيكا (رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 36.0,
+        "dur": 2.0,
+        "shows": "انفجار هاكي نيكا (رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 25.0,
+        "dur": 1.5,
+        "shows": "نيكا العملاق (رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 14.0,
+        "dur": 3.0,
+        "shows": "نيكا يقفز (رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 26.0,
+        "dur": 1.5,
+        "shows": "نيكا (رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 18.0,
+        "dur": 1.5,
+        "shows": "نيكا (رسمي)"
+      }
+    ],
+    "footage_match": "إيمو يظهر عند ذكره (لقطات قصيرة من الحلقة 1118)، والحكماء الخمسة عند ذكر الحكومة؛ لوفي بشكل نيكا (رسمي من توي) عند ذكر نيكا وجوي بوي والهاكي والسؤال الأخير.",
+    "source_credit": "لقطات معجبين: https://www.tiktok.com/@realshanks/video/7412084155397246241 (realshanks). الحقوق لأصحاب العمل.",
+    "footage_checked": true
   },
   {
-    "enabled": false,
+    "enabled": true,
     "date": "2026-11-21",
     "key": "jjk_s01",
     "type": "series",
@@ -741,10 +893,9 @@
     "display_title": "جوجوتسو كايسن: الضربة التي قطعت العالم",
     "english_title": "Jujutsu Kaisen Explained",
     "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
-    "source_url": "https://link.theplatform.com/s/NGweTC/media/wD86p0OPC2uD?formats=MPEG4",
-    "clip_start": 20.0,
+    "source_url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
     "accent": "#ff6b5e",
-    "speech": "كيف خسر غوجو، أقوى ساحر، أمام سوكونا؟ تخيّل إنك فزت للتو، وعالجت جروحك، وابتسمت... وبعد ثانية انتهى كل شيء. أول تفصيل: وقت صراع المجالات، عجلة ماهوراغا دارت وغوجو نزف من أنفه، يعني سوكونا كان يتكيّف مع اللانهاية بصمت. ثاني تفصيل: مجال سوكونا، الضريح الخبيث، بلا حاجز مغلق، فقطع حاجز غوجو من برّا وكسر الفراغ اللامحدود. وثالث تفصيل هو الضربة القاتلة: سوكونا ما استهدف غوجو، استهدف العالم كله. تعلّمها من تكيّف ماهوراغا الثاني اللي وسّع الهدف للمكان كله، فاللانهاية ما نفعت. المؤكد في الفصل مئتين وستة وثلاثين: غوجو مات بلا ندم، وسوكونا وصفه بالرائع وحلف ما ينساه. لو غوجو ما فرح بدري، تتوقع كان فاز؟ اكتب رأيك، ولو أفادك المقطع لايك ومتابعة.",
+    "speech": "كيف خسر غوجو، أقوى ساحر، أمام سوكونا؟ تخيّل إنك عالجت جروحك وفرحت، وبعد ثانية انتهى كل شيء. عجلة ماهوراغا كانت تدور بصمت، يعني سوكونا يتكيّف مع اللانهاية. ومجاله بلا حاجز مغلق، فقطع حاجز غوجو من برّا. والضربة الأخيرة استهدفت العالم كله، فاللانهاية ما نفعت. وسوكونا وصفه بالرائع وحلف ما ينساه. لو ما فرح غوجو بدري، تتوقع كان فاز؟ اكتب رأيك.",
     "title": "Jujutsu Kaisen جوجوتسو كايسن | كيف خسر غوجو أمام سوكونا؟",
     "description": "Jujutsu Kaisen جوجوتسو كايسن | كيف خسر غوجو أمام سوكونا؟\nكيف خسر غوجو أمام سوكونا رغم أنه الأقوى؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#JujutsuKaisen #جوجوتسو_كايسن #شرح_أنمي",
     "tags": [
@@ -784,10 +935,91 @@
         }
       }
     },
-    "scheduled": "buffer+metricool 2026-11-21"
+    "scheduled": "buffer+metricool 2026-11-21",
+    "segments": [
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 14.0,
+        "dur": 2.5,
+        "shows": "غوجو (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 38.0,
+        "dur": 2.0,
+        "shows": "غوجو: «أنا الأقوى» (إعلان رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
+        "start": 6.0,
+        "dur": 1.5,
+        "shows": "غوجو (رسوم معجبين)",
+        "official": false
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 20.0,
+        "dur": 2.0,
+        "shows": "ماهوراغا (إعلان رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
+        "start": 222.0,
+        "dur": 1.5,
+        "shows": "عجلة ماهوراغا (رسوم معجبين)",
+        "official": false
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 22.0,
+        "dur": 2.5,
+        "shows": "سوكونا يعقد إشارة مجاله (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 38.0,
+        "dur": 2.0,
+        "shows": "ضربات سوكونا القاطعة (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 12.0,
+        "dur": 2.0,
+        "shows": "غوجو في ضوء أزرق (إعلان رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
+        "start": 328.0,
+        "dur": 1.5,
+        "shows": "ضربة حمراء تقطع المكان (رسوم معجبين)",
+        "official": false
+      },
+      {
+        "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
+        "start": 348.0,
+        "dur": 1.5,
+        "shows": "غوجو مصاب (رسوم معجبين)",
+        "official": false
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 24.5,
+        "dur": 1.5,
+        "shows": "لهب سوكونا (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 36.0,
+        "dur": 2.0,
+        "shows": "عين غوجو الزرقاء (إعلان رسمي)"
+      }
+    ],
+    "footage_match": "الخطاف وغوجو: لقطات غوجو الرسمية؛ ماهوراغا وعجلته عند ذكر التكيّف؛ إشارة مجال سوكونا وضرباته عند ذكر المجال والضربة؛ رسوم معجبين قصيرة لضربة قطع المكان؛ عين غوجو في السؤال الأخير.",
+    "source_credit": "لقطات معجبين: https://www.tiktok.com/@satoruhm2/video/7492312112102968581 (satoruhm2). الحقوق لأصحاب العمل.",
+    "footage_checked": true
   },
   {
-    "enabled": false,
+    "enabled": true,
     "date": "2026-11-24",
     "key": "jjk_s02",
     "type": "series",
@@ -795,10 +1027,9 @@
     "display_title": "جوجوتسو كايسن: وحش من كتاب عمره 1300 سنة",
     "english_title": "Jujutsu Kaisen Explained",
     "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
-    "source_url": "https://link.theplatform.com/s/NGweTC/media/wD86p0OPC2uD?formats=MPEG4",
-    "clip_start": 60.0,
+    "source_url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
     "accent": "#ff6b5e",
-    "speech": "ليش سوكونا عنده وجهين وأربع أذرع؟ تخيّل إن أقوى شرير في الأنمي ما اخترعه المؤلف أصلاً، بل موجود في كتاب ياباني عمره أكثر من ألف وثلاثمية سنة. سوكونا مأخوذ من ريومن سوكونا، شخصية في كتاب نيهون شوكي، ظهرت في إقليم هيدا في القرن الرابع. الأسطورة تصفه بوجهين وأربع أذرع وأربع أرجل، يحمل قوس وسهم وسيف، ونهب القرى لين طرده قائد اسمه تاكيفوروكوما. والأغرب إن بعض الناس عبدوه، وتماثيل رأسه بالوجهين لسه موجودة في معابد غيفو اليوم. وفيه نظرية تقول إن الوجهين رمز للتوأم والإخوة. المؤكد إن المؤلف أخذ الوحش من التاريخ نفسه. تتوقع ليش اختار أسطورة حقيقية؟ اكتب رأيك، ولو أفادك المقطع لايك ومتابعة.",
+    "speech": "ليش سوكونا له وجهين وأربع أذرع؟ تخيّل إن شرير القصة أصله وحش من كتاب ياباني عمره ألف وثلاثمية سنة. الأسطورة تقول إنه ظهر بوجهين وأربع أذرع، يحمل قوس وسيف، ونهب القرى لين طرده قائد اسمه تاكيفوروكوما. والغريب إن ناس عبدوه، وتماثيل رأسه ذي الوجهين باقية في معابد غيفو لليوم. وفيه نظرية تقول إنه رمز للتوأم. تتوقع سوكونا له توأم؟ اكتب رأيك.",
     "title": "Jujutsu Kaisen جوجوتسو كايسن | لماذا لسوكونا أربع أذرع؟",
     "description": "Jujutsu Kaisen جوجوتسو كايسن | لماذا لسوكونا أربع أذرع؟\nلماذا لسوكونا وجهان وأربع أذرع؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين، مع التمييز بين المؤكد والنظرية.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#JujutsuKaisen #جوجوتسو_كايسن #شرح_أنمي",
     "tags": [
@@ -838,10 +1069,69 @@
         }
       }
     },
-    "scheduled": "buffer+metricool 2026-11-24"
+    "scheduled": "buffer+metricool 2026-11-24",
+    "segments": [
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 22.0,
+        "dur": 3.0,
+        "shows": "سوكونا يعقد إشارة مجاله (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 10.0,
+        "dur": 3.5,
+        "shows": "إصبع سوكونا الملعون (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 24.5,
+        "dur": 1.5,
+        "shows": "لهب سوكونا كالسهم (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 38.0,
+        "dur": 2.0,
+        "shows": "ضربات سوكونا (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 16.0,
+        "dur": 2.5,
+        "shows": "إصبع سوكونا يكبر (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 28.0,
+        "dur": 3.5,
+        "shows": "إصبع سوكونا (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 58.0,
+        "dur": 2.0,
+        "shows": "إيتادوري وعبارة «الشبح ذو الوجهين ملك اللعنات» (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 24.0,
+        "dur": 2.0,
+        "shows": "إصبع سوكونا (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 20.0,
+        "dur": 2.0,
+        "shows": "ماهوراغا، تابع سوكونا (إعلان رسمي)"
+      }
+    ],
+    "footage_match": "كل اللقطات رسمية: سوكونا وإشارة مجاله ولهبه عند ذكر الأسطورة والقوس؛ أصابعه الملعونة (آثاره) عند ذكر الكتاب القديم والتماثيل؛ إيتادوري مع عبارة «الشبح ذو الوجهين» عند نظرية التوأم.",
+    "source_credit": "",
+    "footage_checked": true
   },
   {
-    "enabled": false,
+    "enabled": true,
     "date": "2026-11-23",
     "key": "op_s02",
     "type": "series",
@@ -850,9 +1140,8 @@
     "english_title": "One Piece Explained",
     "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
     "source_url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
-    "clip_start": 15.0,
     "accent": "#ff6b5e",
-    "speech": "تعرف إن شانكس الوحيد بين الأباطرة الأربعة، في كل تاريخهم، اللي ما أكل فاكهة شيطان؟ تخيّل إنك تقف جنب كايدو وبيغ مام، وما عندك قوة فاكهة، وتخيفهم كلهم. مكافأته في بداية القصة كانت الأقل بين الأباطرة، واليوم صارت الأعلى. وهو أول واحد استعمل الهاكي في القصة كلها، من الفصل الأول، لما أرعب ملك البحر بنظرة، وكانت هاكي الملوك. والتفصيل الأخطر: فيلم ريد لمّح إن شانكس من عائلة فيغارلاند النبيلة، قبل ما تأكدها المانغا بسنتين ونص. وفيه نظرية تقول إن أرقام مكافأته تُقرأ باليابانية قريب من اسمه شانكس. المؤكد إن أودا خطط له من البداية. تتوقع شانكس صديق لوفي أو عدوه؟ اكتب رأيك، ولو أفادك المقطع لايك ومتابعة.",
+    "speech": "تعرف إن شانكس الإمبراطور الوحيد، في كل تاريخ الأباطرة، اللي ما أكل فاكهة شيطان؟ تخيّل إنك تقف جنب كايدو وبيغ مام بلا فاكهة، وتخيفهم. مكافأته كانت الأقل بين الأباطرة، واليوم الأعلى. وهو أول من استعمل هاكي الملوك في القصة. وفيلم ريد لمّح إنه من عائلة فيغارلاند النبيلة قبل ما يتأكد بسنتين ونص. تتوقع شانكس صديق لوفي أو عدوه؟ اكتب رأيك.",
     "title": "One Piece ون بيس | أسرار شانكس التي لا يعرفها أحد",
     "description": "One Piece ون بيس | أسرار شانكس التي لا يعرفها أحد\nما أسرار شانكس التي لا يعرفها أغلب المتابعين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين، مع التمييز بين المؤكد والنظرية.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#OnePiece #ون_بيس #شرح_أنمي",
     "tags": [
@@ -892,7 +1181,96 @@
         }
       }
     },
-    "scheduled": "buffer+metricool 2026-11-23"
+    "scheduled": "buffer+metricool 2026-11-23",
+    "segments": [
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 52.0,
+        "dur": 3.0,
+        "shows": "شانكس (إعلان فيلم ريد الرسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 25.0,
+        "dur": 1.5,
+        "shows": "شانكس (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 45.0,
+        "dur": 1.5,
+        "shows": "بيغ مام (رسمي)"
+      },
+      {
+        "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+        "start": 54.0,
+        "dur": 3.0,
+        "shows": "كايدو بشكل التنين (توي الرسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 41.0,
+        "dur": 1.5,
+        "shows": "عين شانكس (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 39.0,
+        "dur": 1.5,
+        "shows": "لوفي وأوتا صغيرين (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 40.0,
+        "dur": 1.5,
+        "shows": "قرية لوفي (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 32.0,
+        "dur": 3.0,
+        "shows": "أوتا ابنة شانكس (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 16.0,
+        "dur": 1.0,
+        "shows": "أوتا (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 26.0,
+        "dur": 1.5,
+        "shows": "لوفي وأوتا (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 23.0,
+        "dur": 1.5,
+        "shows": "لوفي وأوتا (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 29.0,
+        "dur": 1.0,
+        "shows": "لوفي (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 18.0,
+        "dur": 1.0,
+        "shows": "لوفي يبتسم (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4",
+        "start": 47.0,
+        "dur": 1.0,
+        "shows": "لوفي (رسمي)"
+      }
+    ],
+    "footage_match": "كل اللقطات رسمية: شانكس في الخطاف والمكافأة والهاكي؛ بيغ مام وكايدو عند ذكرهما؛ أوتا ابنته عند جملة فيلم ريد وعائلة فيغارلاند؛ لوفي في السؤال الأخير.",
+    "source_credit": "",
+    "footage_checked": true
   },
   {
     "enabled": false,
@@ -1285,5 +1663,122 @@
     "footage_checked": false,
     "footage_match": "",
     "needs_footage_review": "لقطات الإعلان لا تطابق القصة؛ يلزم اختيار لقطات تناسب السرد قبل الإنتاج (20 نوفمبر 2026)"
+  },
+  {
+    "enabled": true,
+    "date": "2026-11-25",
+    "key": "ds_s19",
+    "type": "series",
+    "format": "explainer",
+    "display_title": "قاتل الشياطين: الأسماء تكشف المصير",
+    "english_title": "Demon Slayer Explained",
+    "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
+    "source_url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+    "accent": "#ff6b5e",
+    "speech": "تعرف إن أسماء شخصيات قاتل الشياطين تكشف حقيقتها؟ تخيّل إن اسمك يحكي قصتك قبل ما تبدأ. لقب زينيتسو أغاتسوما يعني زوجتي. وإينو في اسم إينوسكي تشبه كلمة الخنزير البري. ولقب رينغوكو يعني المطهر. واسم إنمو مأخوذ من الكابوس والحلم. ومو في اسم مويتشيرو تعني العدم، وبها تُكتب كلمة اللانهاية. أي اسم أعجبك أكثر؟ اكتب رأيك.",
+    "footage_checked": true,
+    "footage_match": "كل اللقطات رسمية، وكل شخصية تظهر عند ذكر اسمها: زينيتسو، إينوسكي، رينغوكو، إنمو، مويتشيرو؛ بطاقات الأسماء واجتماع الهاشيرا في الافتتاح.",
+    "title": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات",
+    "description": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات\nماذا تعني أسماء شخصيات قاتل الشياطين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#DemonSlayer #قاتل_الشياطين #شرح_أنمي",
+    "tags": [
+      "DemonSlayer",
+      "قاتل_الشياطين",
+      "شرح_أنمي"
+    ],
+    "short_caption": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات\nماذا تعني أسماء شخصيات قاتل الشياطين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح صفحتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#DemonSlayer #قاتل_الشياطين #شرح_أنمي",
+    "series_ref": "ds_series#19",
+    "seo": {
+      "youtube_title": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات",
+      "texts": {
+        "youtube": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات\nماذا تعني أسماء شخصيات قاتل الشياطين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#DemonSlayer #قاتل_الشياطين #شرح_أنمي",
+        "instagram": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات\nماذا تعني أسماء شخصيات قاتل الشياطين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح صفحتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#DemonSlayer #قاتل_الشياطين #شرح_أنمي",
+        "facebook": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات\nماذا تعني أسماء شخصيات قاتل الشياطين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح صفحتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#DemonSlayer #قاتل_الشياطين",
+        "tiktok": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات\nماذا تعني أسماء شخصيات قاتل الشياطين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nللتحميل على أندرويد: أرسل كلمة «تحميل» في رسالة خاصة لحسابنا هنا على تيك توك، وسيصلك الرابط تلقائياً.\n\n#DemonSlayer #قاتل_الشياطين #شرح_أنمي"
+      },
+      "seo_review": {
+        "passed": true,
+        "primary_keyword": "معاني أسماء الشخصيات",
+        "keyword_volume_data": "not_available_for_this_batch (franchise-level interest)",
+        "final_video_and_narration_matched": true,
+        "android_cta_checked": true,
+        "no_new_release_or_full_work_claim": true,
+        "hashtags": {
+          "youtube": 3,
+          "instagram": 3,
+          "tiktok": 3,
+          "facebook": 2
+        },
+        "research_findings": "details from dossiers/series/ds_series.md; theory labeled",
+        "reviewed_text_sha256": {
+          "youtube": "0cda0ef4eae49c13ff3e6381b91c0273207b3b9375a9de666d0afc91f979c861",
+          "instagram": "3995be7322716dd49c2407dc3d8a155ba3879a99f3882aa63a847bad29af6ceb",
+          "facebook": "bae6de5d1fa2beef964d6b02428698b3503c34b5f56c7560bf85c303712c2886",
+          "tiktok": "261fc5289e1fb53fe170c457f5cb29599d4f2b4c242c0a9d3b05ca0594ddbc03"
+        }
+      }
+    },
+    "segments": [
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 48.0,
+        "dur": 2.0,
+        "shows": "بطاقة اسم تينغن (إعلان رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 18.0,
+        "dur": 3.0,
+        "shows": "اجتماع الهاشيرا (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 60.0,
+        "dur": 1.5,
+        "shows": "برق زينيتسو (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 62.0,
+        "dur": 2.0,
+        "shows": "زينيتسو (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 62.0,
+        "dur": 3.0,
+        "shows": "إينوسكي (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 52.0,
+        "dur": 3.0,
+        "shows": "رينغوكو ولهبه (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 26.0,
+        "dur": 2.0,
+        "shows": "بطاقة اسم إنمو (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 28.0,
+        "dur": 2.0,
+        "shows": "إنمو (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 69.5,
+        "dur": 2.5,
+        "shows": "مويتشيرو (رسمي)"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+        "start": 72.0,
+        "dur": 2.0,
+        "shows": "تانجيرو (رسمي)"
+      }
+    ],
+    "source_credit": ""
   }
 ]
