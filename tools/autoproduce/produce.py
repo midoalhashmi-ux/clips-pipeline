@@ -9,20 +9,20 @@ OUTRO_CACHE = ROOT / "outro_cache"  # صوت الخاتمة المولَّد م�
 # توجيه أداء بأسلوب «مخرج صوت» (طلب المالك 20 نوفمبر 2026: صوت سعودي بمشاعر يظنه المشاهد إنساناً حقيقياً).
 # البنية الموصى بها لـ Gemini TTS: ملف الصوت، المشهد، ملاحظات المخرج، ثم النص الحرفي.
 VOICE_DIRECTION = """# AUDIO PROFILE
-A Saudi man in his late twenties, a popular anime storyteller on social media, recording on his own microphone at home.
-Warm, slightly deep, relaxed voice. White Saudi (Najdi-neutral) Arabic dialect, natural everyday pronunciation, never formal classical Arabic.
+A professional Saudi voice-over artist in his early thirties, the narrator of the most popular Arabic anime explainer channel.
+Rich, resonant, charismatic voice. White Saudi (Najdi-neutral) Arabic dialect, natural pronunciation, never formal classical Arabic.
 
 ## SCENE
-Late at night, he is telling a close friend a secret about an anime that most fans missed. Intimate, genuinely excited, human.
+In a treated recording studio, he narrates a viral short about an anime secret he truly loves. He has one second to grab a scrolling viewer and must keep them until the end.
 
 ### DIRECTOR'S NOTES
-- Opening question: lower, intriguing, as if leaning in; a short natural pause after it.
-- The line that starts with "تخيّل": slower and softer, pulling the listener into the moment.
-- The facts: build energy step by step; stress the one surprising word in each sentence; vary the pace like real conversation, with small breaths and micro-pauses between sentences.
-- Any sentence with "نظرية": a little playful and less certain.
-- Any sentence with "المؤكد": calm and confident.
-- The final question: warm and inviting, you can hear a smile.
-- Sound like a real person, not an announcer and not a robot; no exaggerated drama.
+- Energy: high but controlled, like a movie-trailer narrator who is also a passionate fan. Brisk, flowing pace with no dead air.
+- Opening question: punchy and intriguing, with a slight rise; then a short dramatic beat.
+- Build tension sentence by sentence. Just before the key reveal, slow down and drop to a lower, almost whispered tone; then deliver the reveal with weight and a confident smile.
+- Let the emotion follow the meaning: awe for great power, heaviness for loss or death, menace for villains, playful doubt for any sentence with "نظرية", calm certainty for "المؤكد".
+- Stress character names and the one surprising word in each sentence. Vary pitch and rhythm; never a flat, even read.
+- Natural breaths; a real human performer, not a news anchor and not a robot.
+- The final question: warm, smiling, inviting the viewer to answer.
 - Read the Arabic transcript exactly as written, every word, nothing added, nothing skipped. Never read these notes.
 
 #### TRANSCRIPT"""
@@ -38,10 +38,11 @@ VOICE_NAME = os.environ.get("VOICE_NAME", "Charon")  # الصوت المعتمد
 
 
 def polish_voice(wav):
-    """معالجة استوديو خفيفة: إزالة الطنين المنخفض، ضغط لطيف، ومستوى صوت مناسب للمنصات."""
+    """معالجة استوديو: إزالة الطنين، دفء خفيف، وضوح بالترددات الوسطى العليا، تخفيف الصفير، ضغط، ومستوى مناسب للمنصات."""
     tmp = Path(str(wav) + ".p.wav")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-af",
-        "highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=10:release=200:makeup=2,loudnorm=I=-16:TP=-1.5:LRA=9",
+        "highpass=f=80,equalizer=f=160:t=q:w=1:g=2,equalizer=f=400:t=q:w=1.4:g=-2,equalizer=f=3200:t=q:w=1.2:g=3,"
+        "deesser=i=0.4,acompressor=threshold=-22dB:ratio=3.5:attack=8:release=180:makeup=2.5,loudnorm=I=-15:TP=-1.5:LRA=8",
         "-ar", "24000", "-ac", "1", str(tmp)], check=True)
     tmp.replace(wav)
 
@@ -372,9 +373,31 @@ def build_outro(png, wav, out, cap=6.0):
         "-c:a", "aac", "-ar", "44100", "-ac", "1", str(out)], check=True)
 
 
-def concat(main_mp4, outro_mp4, out):
+# موسيقى خلفية أصلية مولَّدة بالمعادلات (طلب المالك 20 نوفمبر 2026: صوت يشبه المحترفين).
+# لا مقطوعات خارجية إطلاقاً، فلا مطالبات حقوق: نغمة غامضة ممتدة مع نبض خافت كدقّات القلب، تخفت تلقائياً تحت الصوت.
+MUSIC_BED = ("0.16*(sin(2*PI*110*t)+sin(2*PI*110.35*t)+0.7*sin(2*PI*164.81*t)+0.7*sin(2*PI*165.2*t)"
+    "+0.45*sin(2*PI*220*t)+0.3*sin(2*PI*261.63*t+sin(2*PI*0.1*t)))*(0.75+0.25*sin(2*PI*0.07*t))"
+    "+0.55*sin(2*PI*52*t)*exp(-9*mod(t,1.2))+0.3*sin(2*PI*52*t)*exp(-11*mod(t-0.28,1.2))*gte(mod(t,1.2),0.28)")
+
+
+def media_dur(path):
+    p = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
+        capture_output=True, text=True, check=True)
+    return float(p.stdout.strip())
+
+
+def concat(main_mp4, outro_mp4, out, music=False):
+    f = "[0:v][0:a][1:v][1:a]concat=n=2:v=1:a=1[v][a]"
+    amap = "[a]"
+    if music:
+        t = media_dur(main_mp4) + media_dur(outro_mp4)
+        f += (f";aevalsrc='{MUSIC_BED}':s=44100:d={t:.2f},lowpass=f=900,aecho=0.8:0.7:60|120:0.25|0.15,"
+              f"afade=t=in:d=1.2,afade=t=out:st={max(0.0, t - 1.5):.2f}:d=1.5,volume=0.5[m0];"
+              "[a]aresample=44100,asplit=2[vo][sc];[m0][sc]sidechaincompress=threshold=0.02:ratio=5:attack=25:release=450[m];"
+              "[vo][m]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[am]")
+        amap = "[am]"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(main_mp4), "-i", str(outro_mp4),
-        "-filter_complex", "[0:v][0:a][1:v][1:a]concat=n=2:v=1:a=1[v][a]", "-map", "[v]", "-map", "[a]",
+        "-filter_complex", f, "-map", "[v]", "-map", amap,
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-c:a", "aac", str(out)], check=True)
 
 
@@ -478,7 +501,8 @@ def produce_item(it, a):
                     OUTRO_CACHE.mkdir(parents=True, exist_ok=True)
                     shutil.copy(ow, cached)
         build_outro(ROOT / "outro" / f"{plat}.png", ow, d / f"outro-{plat}.mp4")
-        concat(d / "video.mp4", d / f"outro-{plat}.mp4", d / f"video-{plat}.mp4")
+        concat(d / "video.mp4", d / f"outro-{plat}.mp4", d / f"video-{plat}.mp4",
+            music=it.get("format") == "explainer" and it.get("music", True))
         (d / f"outro-{plat}.mp4").unlink()
     print("جاهز:", d.name)
 
