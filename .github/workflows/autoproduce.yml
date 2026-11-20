@@ -50,7 +50,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: tools/autoproduce/outro_cache
-          key: outro-audio-${{ steps.outrokey.outputs.h }}
+          key: outro-audio-${{ steps.outrokey.outputs.h }}-${{ github.run_id }}
+          restore-keys: outro-audio-${{ steps.outrokey.outputs.h }}
       - name: Produce clips
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

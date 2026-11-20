@@ -435,7 +435,12 @@ def produce_item(it, a):
         if it.get("speech_end"):
             segs = make_voice_segments(it, d, a, wav)
         else:
-            gemini_voice(meta["speech"], wav)
+            vkey = OUTRO_CACHE / f"voice-{hashlib.sha1((VOICE_NAME + VOICE_DIRECTION + meta['speech']).encode()).hexdigest()[:16]}.wav"
+            if vkey.exists():  # النص نفسه سبق توليده: لا نستهلك حصة الصوت عند تعديل اللقطات فقط
+                shutil.copy(vkey, wav); print("صوت محفوظ مسبقاً:", vkey.name)
+            else:
+                gemini_voice(meta["speech"], wav)
+                OUTRO_CACHE.mkdir(parents=True, exist_ok=True); shutil.copy(wav, vkey)
             if it.get("format") == "explainer" and wav_dur(wav) > MAX_MAIN_SECONDS:
                 # طلب المالك 20 نوفمبر 2026: المقطع 25 إلى 35 ثانية بالخاتمة؛ يُسرَّع الصوت حتى 1.25 إن طال
                 fitted = d / "voice_fit.wav"; fit_wav(wav, fitted, MAX_MAIN_SECONDS); fitted.replace(wav)
