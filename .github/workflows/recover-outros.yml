@@ -1,0 +1,60 @@
+name: Recover outro voices (one-off)
+
+# يستخرج أصوات الخاتمات الحالية من فيديو منتج سابقاً ويحفظها بفرع scans، فلا تُستهلك حصة الصوت لإعادة توليدها.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Production run whose ready-clips hold the current outros'
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download clips
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sudo apt-get install -y -qq ffmpeg >/dev/null 2>&1 || true
+          gh run download "${{ inputs.run_id }}" -n ready-clips -D clips
+          find clips -name 'video-*.mp4' | head
+      - name: Extract outro voices
+        run: |
+          mkdir -p rec
+          python3 - <<'PY'
+          import re, subprocess, sys, hashlib
+          from pathlib import Path
+          sys.path.insert(0, 'tools/autoproduce')
+          sys.argv = ['x']
+          import produce
+          for plat, text in produce.outro_platforms().items():
+              vid = next(Path('clips').glob(f'*/video-{plat}.mp4'))
+              log = subprocess.run(['ffmpeg', '-hide_banner', '-i', str(vid), '-af', 'silencedetect=n=-45dB:d=0.6', '-f', 'null', '-'],
+                                   capture_output=True, text=True).stderr
+              ends = [float(x) for x in re.findall(r'silence_end: ([\d.]+)', log)]
+              start = max(ends[-1] - 0.05, 0)
+              name = f"{plat}-v2-{hashlib.sha1(text.encode()).hexdigest()[:10]}.wav"
+              tmp = Path('rec') / ('_' + name)
+              subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{start:.3f}', '-i', str(vid), '-vn', '-ac', '1', '-ar', '24000', str(tmp)], check=True)
+              subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(tmp), '-af',
+                  'areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse', '-ar', '24000', '-ac', '1', str(Path('rec') / name)], check=True)
+              tmp.unlink()
+              print(plat, vid.name, 'outro starts', start, '->', name, produce.wav_dur(Path('rec') / name))
+          PY
+      - name: Save to scans/voices
+        run: |
+          git config user.name "qa-bot"
+          git config user.email "qa-bot@users.noreply.github.com"
+          git fetch -q origin scans && git worktree add -q ../qb origin/scans -B scans
+          mkdir -p ../qb/voices && cp rec/*.wav ../qb/voices/
+          cd ../qb && git add -A && git commit -q -m "Recovered outro voices" && git push -q origin scans

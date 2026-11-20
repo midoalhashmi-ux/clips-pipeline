@@ -81,7 +81,8 @@ jobs:
           if git fetch -q origin scans 2>/dev/null; then git worktree add -q ../qb origin/scans -B scans; else git worktree add -q --orphan -b scans ../qb; fi
           mkdir -p ../qb/qa && cp qa_out/*.jpg ../qb/qa/ 2>/dev/null || true
           mkdir -p ../qb/previews && cp qa_out/*.mp4 ../qb/previews/ 2>/dev/null || true
-          mkdir -p ../qb/voices && cp tools/autoproduce/outro_cache/voice-*.wav ../qb/voices/ 2>/dev/null || true
+          # كل الأصوات (الرئيسية والخاتمات) تُحفظ دائماً، فلا تُستهلك الحصة لإعادتها ولا تضيع إن لم تُحفظ ذاكرة سير العمل
+          mkdir -p ../qb/voices && cp tools/autoproduce/outro_cache/*.wav ../qb/voices/ 2>/dev/null || true
           cd ../qb && git add -A && (git commit -q -m "QA sheets" && git pull -q --rebase origin scans && git push -q origin scans) || echo "nothing new"
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() && hashFiles('tools/autoproduce/out/**') != '' }}
