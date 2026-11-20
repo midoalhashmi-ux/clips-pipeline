@@ -52,6 +52,11 @@ jobs:
           path: tools/autoproduce/outro_cache
           key: outro-audio-${{ steps.outrokey.outputs.h }}-${{ github.run_id }}
           restore-keys: outro-audio-${{ steps.outrokey.outputs.h }}
+      - name: Restore saved narration voices (scans branch)
+        run: |
+          mkdir -p tools/autoproduce/outro_cache
+          if git fetch -q --depth=1 origin scans 2>/dev/null; then git archive FETCH_HEAD voices 2>/dev/null | tar -x -C tools/autoproduce/outro_cache --strip-components=1 || true; fi
+          ls tools/autoproduce/outro_cache | head -50
       - name: Produce clips
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -70,6 +75,7 @@ jobs:
           git config user.email "qa-bot@users.noreply.github.com"
           if git fetch -q origin scans 2>/dev/null; then git worktree add -q ../qb origin/scans -B scans; else git worktree add -q --orphan -b scans ../qb; fi
           mkdir -p ../qb/qa && cp qa_out/*.jpg ../qb/qa/ 2>/dev/null || true
+          mkdir -p ../qb/voices && cp tools/autoproduce/outro_cache/voice-*.wav ../qb/voices/ 2>/dev/null || true
           cd ../qb && git add -A && (git commit -q -m "QA sheets" && git pull -q --rebase origin scans && git push -q origin scans) || echo "nothing new"
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() && hashFiles('tools/autoproduce/out/**') != '' }}
