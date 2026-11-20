@@ -31,6 +31,19 @@ def scan(job):
                             "--merge-output-format", "mp4", "-o", str(src), url], check=True, timeout=240)
         w, h, dur = probe(src)
         meta.update({"width": w, "height": h, "duration": round(dur, 1), "quality_ok": min(w, h) >= 720})
+        if job.get("times"):  # لحظات محددة بدقة أعلى للتحقق قبل اختيار النوافذ
+            frames = []
+            for k, t in enumerate(job["times"]):
+                f = OUT / f"_{name}_{k:02d}.png"
+                subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(t), "-i", str(src), "-frames:v", "1", "-vf",
+                    f"scale=-2:{300 if h > w else 220},drawtext=fontfile={FONT}:text='{t}':x=6:y=6:fontsize=26:fontcolor=yellow:box=1:boxcolor=black@0.6",
+                    str(f)], check=True)
+                frames.append(f)
+            cols = 6
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-pattern_type", "glob", "-i", str(OUT / f"_{name}_*.png"),
+                "-vf", f"tile={cols}x{-(-len(frames) // cols)}", "-frames:v", "1", "-q:v", "5", str(OUT / f"{name}_times.jpg")], check=True)
+            for f in frames:
+                f.unlink()
         step = 1 if dur <= 80 else 2
         n = int(dur // step) + 1
         cols = 10 if h > w else 8

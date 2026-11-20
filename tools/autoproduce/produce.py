@@ -68,6 +68,7 @@ def gemini_voice(speech, wav_path):
     sys.exit(f"فشل توليد الصوت: {last}")
 
 
+MAX_MAIN_SECONDS = 28.0  # الصوت قبل الخاتمة؛ مع الخاتمة (نحو 6 ثوانٍ) يبقى المقطع تحت 35 ثانية
 MIN_SOURCE_HEIGHT = 720  # طلب المالك 20 نوفمبر 2026: لا مصدر أقل من 720p، والمفضّل 1080p فأعلى
 PREFERRED_SOURCE_HEIGHT = 1080
 
@@ -395,6 +396,9 @@ def produce_item(it, a):
             segs = make_voice_segments(it, d, a, wav)
         else:
             gemini_voice(meta["speech"], wav)
+            if it.get("format") == "explainer" and wav_dur(wav) > MAX_MAIN_SECONDS:
+                # طلب المالك 20 نوفمبر 2026: المقطع 25 إلى 35 ثانية بالخاتمة؛ يُسرَّع الصوت حتى 1.25 إن طال
+                fitted = d / "voice_fit.wav"; fit_wav(wav, fitted, MAX_MAIN_SECONDS); fitted.replace(wav)
         if it.get("segments"):
             src = build_montage(it, d, target=wav_dur(wav) + 1.0)
         else:

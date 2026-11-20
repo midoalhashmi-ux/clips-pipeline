@@ -1,8 +1,111 @@
 [
- {"name": "ds_mugen", "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4"},
- {"name": "tt_gojo_sukuna_anim", "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581"},
- {"name": "tt_sukuna_heian", "url": "https://www.tiktok.com/@animeinsider11/video/7609838442851224854"},
- {"name": "tt_doma_shinobu", "url": "https://www.tiktok.com/@cazwell/video/7553545410057473311"},
- {"name": "tt_yoriichi_muzan_a", "url": "https://www.tiktok.com/@zizothespoiler/video/7562268401427631382"},
- {"name": "tt_yoriichi_muzan_b", "url": "https://www.tiktok.com/@pxrttox/video/7370776907568123169"}
+ {
+  "name": "v_anim",
+  "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
+  "times": [
+   6,
+   8,
+   9,
+   86,
+   87,
+   88,
+   89,
+   124,
+   125,
+   176,
+   180,
+   181,
+   212,
+   213,
+   214,
+   222,
+   223,
+   348,
+   349,
+   350
+  ]
+ },
+ {
+  "name": "v_mugen",
+  "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
+  "times": [
+   24.5,
+   25.5,
+   28.5,
+   29.5,
+   30.5,
+   31.5,
+   36.5,
+   37.5,
+   38.5,
+   39.5,
+   40.5,
+   41.3,
+   50.5,
+   51.3,
+   52.5,
+   54.5,
+   55.3,
+   56.5,
+   57.3,
+   58.5,
+   60.5,
+   61.5,
+   62.5,
+   63.3,
+   70.5,
+   71.5,
+   72.5,
+   73.3
+  ]
+ },
+ {
+  "name": "v_gear5",
+  "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
+  "times": [
+   0.3,
+   1.5,
+   14.5,
+   16.5,
+   18.5,
+   19.5,
+   25.3,
+   26.5,
+   36.5,
+   38.5,
+   47.3,
+   48.5,
+   49.5,
+   54.5,
+   56.5,
+   71.3,
+   72.5,
+   73.5,
+   74.3
+  ]
+ },
+ {
+  "name": "v_imu",
+  "url": "https://www.tiktok.com/@realshanks/video/7412084155397246241",
+  "times": [
+   6.2,
+   7.5,
+   8.8,
+   12.2,
+   13.5,
+   14.4,
+   20.2,
+   21.5
+  ]
+ },
+ {
+  "name": "v_yori",
+  "url": "https://www.tiktok.com/@pxrttox/video/7370776907568123169",
+  "times": [
+   10.2,
+   10.8,
+   11.3,
+   11.8
+  ]
+ }
 ]
