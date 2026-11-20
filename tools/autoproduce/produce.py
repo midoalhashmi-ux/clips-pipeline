@@ -106,6 +106,30 @@ def check_quality(path):
         print(f"جودة المصدر {w}x{h} سليمة")
 
 
+def build_montage(item, d):
+    """مقاطع متعددة تناسب القصة (طلب المالك 20 نوفمبر 2026): كل مقطع في `segments` له `url` اختياري (الافتراضي مصدر العمل)
+    و`start` و`dur` و`shows` (ما يظهر فيه). تُقصّ وتُدمج بالترتيب بحجم 1920x1080 بلا صوت، ثم تُستعمل كمصدر واحد."""
+    cache, parts = {}, []
+    for i, seg in enumerate(item["segments"]):
+        url = seg.get("url") or item["source_url"]
+        if url not in cache:
+            f = d / f"_src{len(cache)}.mp4"
+            fetch_source({"source_url": url}, f); check_quality(f)
+            cache[url] = f
+        out = d / f"_seg{i}.mp4"
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{float(seg['start']):.2f}", "-t", f"{float(seg['dur']):.2f}",
+            "-i", str(cache[url]), "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30",
+            "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", str(out)], check=True)
+        parts.append(out)
+    lst = d / "_montage.txt"
+    lst.write_text("\n".join(f"file '{p}'" for p in parts), encoding="utf-8")
+    montage = d / "source.mp4"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(montage)], check=True)
+    for p in [*parts, *cache.values(), lst]:
+        p.unlink()
+    return montage
+
+
 def fetch_source(item, dest):
     url = item["source_url"]
     if url.lower().endswith(".mp4") or "theplatform.com" in url:
@@ -368,8 +392,12 @@ def produce_item(it, a):
             segs = make_voice_segments(it, d, a, wav)
         else:
             gemini_voice(meta["speech"], wav)
-        src = d / "source.mp4"; fetch_source(it, src); check_quality(src)
-    build_video(src, wav, d / "video.mp4", {**meta, **{k: it[k] for k in ("key", "display_title", "english_title", "accent", "clip_start", "audio_mode", "tail") if k in it}}, d, segs)
+        if it.get("segments"):
+            src = build_montage(it, d)
+        else:
+            src = d / "source.mp4"; fetch_source(it, src); check_quality(src)
+    build_video(src, wav, d / "video.mp4", {**meta, **{k: it[k] for k in ("key", "display_title", "english_title", "accent", "clip_start", "audio_mode", "tail") if k in it},
+        **({"clip_start": 0.0} if it.get("segments") else {})}, d, segs)
     (d / "meta.txt").write_text(
         f"العنوان:\n{meta['title']}\n\nالوصف:\n{meta['description']}\n\nالوسوم:\n{', '.join(meta['tags'])}\n\n"
         f"تعليق المنصات الأخرى:\n{meta['short_caption']}\n\nالنص المنطوق:\n{meta.get('speech','')}\n"

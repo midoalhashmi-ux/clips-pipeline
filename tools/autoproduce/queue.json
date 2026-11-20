@@ -895,7 +895,7 @@
     "scheduled": "buffer+metricool 2026-11-23"
   },
   {
-    "enabled": true,
+    "enabled": false,
     "date": "2026-11-26",
     "key": "jjk_s03",
     "type": "series",
@@ -945,10 +945,13 @@
           "tiktok": "48c433fcdbedf49b22912ba06eeacab419864aa158420a938a406aa13485853c"
         }
       }
-    }
+    },
+    "footage_checked": false,
+    "footage_match": "",
+    "needs_footage_review": "لقطات الإعلان لا تطابق القصة؛ يلزم اختيار لقطات تناسب السرد قبل الإنتاج (20 نوفمبر 2026)"
   },
   {
-    "enabled": true,
+    "enabled": false,
     "date": "2026-11-27",
     "key": "ds_s02",
     "type": "series",
@@ -998,10 +1001,13 @@
           "tiktok": "95dfc0c3870bba5ac181a58339a2f5c6b22cc813b73e5f7e9da1f5b8aa239af9"
         }
       }
-    }
+    },
+    "footage_checked": false,
+    "footage_match": "",
+    "needs_footage_review": "لقطات الإعلان لا تطابق القصة؛ يلزم اختيار لقطات تناسب السرد قبل الإنتاج (20 نوفمبر 2026)"
   },
   {
-    "enabled": true,
+    "enabled": false,
     "date": "2026-11-28",
     "key": "op_s03",
     "type": "series",
@@ -1051,10 +1057,13 @@
           "tiktok": "6a288212beed5469ae9a5eecc1486b378355d755d415260c77d6aa1319c558c7"
         }
       }
-    }
+    },
+    "footage_checked": false,
+    "footage_match": "",
+    "needs_footage_review": "لقطات الإعلان لا تطابق القصة؛ يلزم اختيار لقطات تناسب السرد قبل الإنتاج (20 نوفمبر 2026)"
   },
   {
-    "enabled": true,
+    "enabled": false,
     "date": "2026-11-29",
     "key": "ds_s03",
     "type": "series",
@@ -1104,10 +1113,13 @@
           "tiktok": "1b76cf57221fbb31d03b1040f11050de65180acde5a3133302cd2b5ca47b0035"
         }
       }
-    }
+    },
+    "footage_checked": false,
+    "footage_match": "",
+    "needs_footage_review": "لقطات الإعلان لا تطابق القصة؛ يلزم اختيار لقطات تناسب السرد قبل الإنتاج (20 نوفمبر 2026)"
   },
   {
-    "enabled": true,
+    "enabled": false,
     "date": "2026-11-30",
     "key": "op_s04",
     "type": "series",
@@ -1157,7 +1169,10 @@
           "tiktok": "2790cc5bd8fe372f100e610419bcab6e2dd6c258b1e279a5393e7ee542a77dfa"
         }
       }
-    }
+    },
+    "footage_checked": false,
+    "footage_match": "",
+    "needs_footage_review": "لقطات الإعلان لا تطابق القصة؛ يلزم اختيار لقطات تناسب السرد قبل الإنتاج (20 نوفمبر 2026)"
   },
   {
     "enabled": false,
@@ -1210,7 +1225,10 @@
           "tiktok": "16c971865dc908397e9dcd0742c534e367db803ff3ebbe74dc28bf184299b648"
         }
       }
-    }
+    },
+    "footage_checked": false,
+    "footage_match": "",
+    "needs_footage_review": "لقطات الإعلان لا تطابق القصة؛ يلزم اختيار لقطات تناسب السرد قبل الإنتاج (20 نوفمبر 2026)"
   },
   {
     "enabled": false,
@@ -1263,6 +1281,9 @@
           "tiktok": "a0a1131e761e52e51fa128f836a444e7b3acd06722e67c08aff73b15fd33f2c1"
         }
       }
-    }
+    },
+    "footage_checked": false,
+    "footage_match": "",
+    "needs_footage_review": "لقطات الإعلان لا تطابق القصة؛ يلزم اختيار لقطات تناسب السرد قبل الإنتاج (20 نوفمبر 2026)"
   }
 ]

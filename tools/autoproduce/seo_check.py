@@ -20,6 +20,12 @@ def check(it):
         return [f"{it['key']}: لا يوجد حقل seo"]
     title, texts, rev = seo["youtube_title"], seo["texts"], seo["seo_review"]
     if it.get("format") == "explainer":
+        # طلب المالك 20 نوفمبر 2026: اللقطات تناسب القصة (إيمو ونيكا يظهران حين يُذكران، لا مشاهد عادية)
+        if not it.get("footage_checked") or len(str(it.get("footage_match", ""))) < 20:
+            errs.append("اللقطات لم تُراجَع: املأ footage_match (ما يظهر ومطابقته للسرد) وضع footage_checked=true بعد مراجعة شريط المصغّرات")
+        for sg in it.get("segments", []):
+            if not str(sg.get("shows", "")).strip():
+                errs.append("كل مقطع في segments يحتاج وصف shows لما يظهر فيه")
         for fld in ("speech", "speech_end"):
             if SOURCE_WORDS.search(it.get(fld, "")):
                 errs.append(f"{fld} يذكر مصدر المعلومة (فصل أو حلقة أو مجلد أو مانغا)؛ تُروى حقيقة مباشرة")

@@ -36,6 +36,7 @@ def build(a):
           "display_title": f"{s['work_ar']}: {v['overlay_line']}", "english_title": f"{en} Explained",
           "synopsis": "Explainer from a reviewed series dossier; confirmed vs theory labeled in the narration.",
           "source_url": a.source, "clip_start": a.clip_start, "accent": a.accent, "speech": v["speech"],
+          "footage_checked": False, "footage_match": "",
           "title": v["title"], "description": texts["youtube"], "tags": [t.lstrip("#") for t in tags[:3]],
           "short_caption": texts["instagram"], "series_ref": f"{a.series}#{a.n}",
           "seo": {"youtube_title": v["title"], "texts": texts, "seo_review": {
