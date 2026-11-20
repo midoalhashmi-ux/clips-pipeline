@@ -158,8 +158,11 @@ def build_montage(item, d, target=None):
             fetch_source({"source_url": url}, f); check_quality(f)
             cache[url] = f
         out = d / f"_seg{i}.mp4"
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{float(seg['start']):.2f}", "-t", f"{float(seg['dur']) * factor:.2f}",
-            "-i", str(cache[url]), "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30",
+        # لا نخرج عن النافذة المراجَعة أبداً: الإطالة تكون بإبطاء خفيف للّقطة نفسها، والتقصير بقصّها
+        dur = float(seg["dur"]) * min(factor, 1.0)
+        slow = f"setpts={factor:.3f}*PTS," if factor > 1.0 else ""
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{float(seg['start']):.2f}", "-t", f"{dur:.2f}",
+            "-i", str(cache[url]), "-vf", f"{slow}scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30",
             "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", str(out)], check=True)
         parts.append(out)
     lst = d / "_montage.txt"
