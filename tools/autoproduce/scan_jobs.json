@@ -1,7 +1,26 @@
 [
- {"name": "a_mugen", "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4", "audio": true},
- {"name": "a_hash", "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4", "audio": true},
- {"name": "a_fred", "url": "https://link.theplatform.com/s/NGweTC/media/4_D3hpV782hb?formats=MPEG4", "audio": true},
- {"name": "a_gear5", "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846", "audio": true},
- {"name": "a_s1_gojo", "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4", "times": [37.8, 38.2, 38.7, 39.2, 39.7, 40.2, 40.7, 41.2, 69.5, 72, 75, 77, 79, 80.5, 82, 84]}
+ {
+  "name": "exec_6068",
+  "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+  "times": [
+   60.0,
+   60.5,
+   61.0,
+   61.5,
+   62.0,
+   62.5,
+   63.0,
+   63.5,
+   64.0,
+   64.5,
+   65.0,
+   65.5,
+   66.0,
+   66.5,
+   67.0,
+   67.5,
+   68.0,
+   68.5
+  ]
+ }
 ]
