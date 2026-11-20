@@ -37,7 +37,7 @@ jobs:
         with:
           name: keyword-research
           path: tools/autoproduce/keyword-research.json
-          retention-days: 30
+          retention-days: 12
       - name: Outro audio cache key
         id: outrokey
         run: |
@@ -61,4 +61,4 @@ jobs:
         with:
           name: ready-clips
           path: tools/autoproduce/out/
-          retention-days: 30
+          retention-days: 12

@@ -1,9 +1,6 @@
 name: Publish and schedule clips
 
 on:
-  workflow_run:
-    workflows: ["Weekly content production"]
-    types: [completed]
   workflow_dispatch:
     inputs:
       run_id:
@@ -21,12 +18,11 @@ permissions:
   actions: read
 
 env:
-  PAGES_PROJECT: binsheikh-media
-  BASE_URL: https://binsheikh-media.pages.dev
+  PAGES_PROJECT: clipmedia-9x4k
+  BASE_URL: https://clipmedia-9x4k.pages.dev
 
 jobs:
   publish:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
