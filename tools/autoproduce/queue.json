@@ -1022,7 +1022,18 @@
     ],
     "footage_match": "الخطاف وغوجو: لقطات غوجو الرسمية؛ ماهوراغا وعجلته عند ذكر التكيّف؛ إشارة مجال سوكونا وضرباته عند ذكر المجال والضربة؛ رسوم معجبين قصيرة لضربة قطع المكان؛ عين غوجو في السؤال الأخير.",
     "source_credit": "لقطات معجبين: https://www.tiktok.com/@satoruhm2/video/7492312112102968581 (satoruhm2). الحقوق لأصحاب العمل.",
-    "footage_checked": true
+    "footage_checked": true,
+    "beats": [
+      {
+        "after": 1,
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 38.0,
+        "dur": 2.5,
+        "official": true,
+        "shows": "إعلان الموسم الأول الرسمي: غوجو مبتسماً بنظارته، مع ترجمة It'll be fine. I'm the strongest there is, after all.",
+        "hears": "大丈夫、僕最強だから (لا تقلق، أنا الأقوى)"
+      }
+    ]
   },
   {
     "enabled": true,
@@ -1086,7 +1097,7 @@
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
         "start": 88.0,
-        "dur": 1.6,
+        "dur": 1.9,
         "shows": "سوكونا بعينين حمراوين",
         "official": false
       },
@@ -1127,18 +1138,6 @@
         "shows": "إصبع سوكونا"
       },
       {
-        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
-        "start": 57.0,
-        "dur": 0.9,
-        "shows": "إصبع سوكونا مع عبارة «الشبح ذو الوجهين»"
-      },
-      {
-        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
-        "start": 58.0,
-        "dur": 0.4,
-        "shows": "إيتادوري وعاء سوكونا"
-      },
-      {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
         "start": 19.4,
         "dur": 1.8,
@@ -1147,14 +1146,25 @@
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
         "start": 348.0,
-        "dur": 1.4,
+        "dur": 1.0,
         "shows": "ماهوراغا يزأر",
         "official": false
       }
     ],
-    "footage_match": "كل اللقطات رسمية: سوكونا وإشارة مجاله ولهبه عند ذكر الأسطورة والقوس؛ أصابعه الملعونة (آثاره) عند ذكر الكتاب القديم والتماثيل؛ إيتادوري مع عبارة «الشبح ذو الوجهين» عند نظرية التوأم.",
+    "footage_match": "كل اللقطات رسمية: سوكونا وإشارة مجاله ولهبه عند ذكر الأسطورة والقوس؛ أصابعه الملعونة (آثاره) عند ذكر الكتاب القديم والتماثيل؛ إيتادوري مع عبارة «الشبح ذو الوجهين» عند نظرية التوأم؛ أزيلت لقطتا الترجمة المقصوصة والجد (مراجعة 20 نوفمبر)، وقُصّرت لقطة زئير ماهوراغا لتسبق الترجمة.",
     "source_credit": "لقطات معجبين: https://www.tiktok.com/@satoruhm2/video/7492312112102968581 (satoruhm2). الحقوق لأصحاب العمل.",
-    "footage_checked": true
+    "footage_checked": true,
+    "beats": [
+      {
+        "after": 1,
+        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
+        "start": 54.5,
+        "dur": 3.9,
+        "official": true,
+        "shows": "إعلان الموسم الأول الرسمي: يد لعنة، ضريح الإصبع، إصبع سوكونا، مع ترجمة The Double-Faced Specter is the king of the Curses",
+        "hears": "両面宿儺は紛うことなき呪いの王だ (ريومين سوكونا هو ملك اللعنات بلا شك)"
+      }
+    ]
   },
   {
     "enabled": true,
