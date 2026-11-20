@@ -1,0 +1,39 @@
+name: Scan candidate clips
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scans-branch
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install ffmpeg and yt-dlp
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          pip install -q yt-dlp
+      - name: Download candidates and build contact sheets
+        run: python tools/autoproduce/scan_clips.py
+      - name: Commit sheets to the scans branch (not main)
+        run: |
+          git config user.name "scan-bot"
+          git config user.email "scan-bot@users.noreply.github.com"
+          if git fetch -q origin scans 2>/dev/null; then
+            git worktree add -q ../sb origin/scans -B scans
+          else
+            git worktree add -q --orphan -b scans ../sb
+          fi
+          mkdir -p ../sb/scans && cp scans_out/*.jpg scans_out/*.json ../sb/scans/ 2>/dev/null || true
+          cd ../sb && git add -A && (git commit -q -m "Scan sheets" && git push -q origin scans) || echo "nothing new"
