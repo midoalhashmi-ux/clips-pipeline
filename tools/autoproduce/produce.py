@@ -457,7 +457,7 @@ def make_voice_segments(it, d, a, wav):
 
 # لحظات صوت الأنمي (طلب المالك 20 نوفمبر 2026): يتوقف صوتنا بعد جملة، فتُسمع لحظة قصيرة من الأنمي بصوتها
 # (جملة شهيرة، صرخة، ضربة) ثم يكمل الشرح. اختيارية لكل بند عبر `beats`، وحدودها يفحصها seo_check.py:
-# لحظتان كحد أقصى، كل واحدة 3 ثوانٍ، ومجموعها 5 ثوانٍ، ومن مصادر رسمية فقط. لا صوت أنمي خلفيةً طوال المقطع.
+# لحظتان كحد أقصى، كل واحدة 4.5 ثانية (جملة شهيرة كاملة)، ومجموعها 6 ثوانٍ، ومن مصادر رسمية فقط. لا صوت أنمي خلفيةً طوال المقطع.
 def sentence_ends(speech, wav):
     """أزمنة نهايات الجمل في الصوت: موضع تقديري بنسبة الحروف، ثم أقرب وقفة مكتشفة فعلاً."""
     parts = [p for p in re.split(r"(?<=[.؟!?])\s+", speech.strip()) if p]
@@ -478,10 +478,12 @@ def _norm_cut(src, start, length, dst, beat=False):
     """يقصّ جزءاً بتنسيق موحّد (1080x1920، 30 إطاراً، صوت أحادي 44.1 كيلوهرتز) ليُدمج بلا اختلال."""
     vf = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,format=yuv420p"
     af = "aresample=44100"
-    if beat:  # لحظة الأنمي: مستوى قريب من صوتنا، مع دخول وخروج ناعمين
+    if beat:  # لحظة الأنمي: الإطار كاملاً فوق خلفية مموّهة (لا تُقصّ ترجمته)، ومستوى قريب من صوتنا مع دخول وخروج ناعمين
+        vf = ("split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24,eq=brightness=-0.12[bg];"
+              "[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1,fps=30,format=yuv420p")
         af = f"loudnorm=I=-16:TP=-1.5,afade=t=in:d=0.08,afade=t=out:st={max(0.0, length - 0.2):.2f}:d=0.2,aresample=44100"
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start:.3f}"] + (["-t", f"{length:.3f}"] if length else []) + [
-        "-i", str(src), "-vf", vf, "-af", af, "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+        "-i", str(src), "-filter_complex" if beat else "-vf", vf, "-af", af, "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
         "-c:a", "aac", "-b:a", "160k", "-ac", "1", str(dst)]
     subprocess.run(cmd, check=True)
 

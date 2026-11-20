@@ -42,8 +42,8 @@ def check(it):
         if beats:
             n = len([p for p in re.split(r"(?<=[.؟!?])\s+", it.get("speech", "").strip()) if p])
             durs = [float(b.get("dur", 0)) for b in beats]
-            if len(beats) > 2 or max(durs) > 3 or sum(durs) > 5:
-                errs.append("لحظات الأنمي: لحظتان كحد أقصى، كل واحدة 3 ثوانٍ، ومجموعها 5 ثوانٍ")
+            if len(beats) > 2 or max(durs) > 4.5 or sum(durs) > 6:
+                errs.append("لحظات الأنمي: لحظتان كحد أقصى، كل واحدة 4.5 ثانية، ومجموعها 6 ثوانٍ")
             for b in beats:
                 if b.get("official") is not True:
                     errs.append("لحظة أنمي من مصدر غير رسمي (official=true مطلوب)")
