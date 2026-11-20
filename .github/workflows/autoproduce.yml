@@ -55,6 +55,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: python tools/autoproduce/produce.py --days "${{ inputs.days || '7' }}" --only "${{ inputs.only }}"
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() && hashFiles('tools/autoproduce/out/**') != '' }}

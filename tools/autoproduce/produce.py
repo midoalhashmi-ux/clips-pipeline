@@ -130,8 +130,17 @@ def build_montage(item, d):
     return montage
 
 
+def fetch_telegram(file_id, dest):
+    """مقطع أرسله المالك لبوت صندوق الاستقبال (tg://<file_id>)؛ حد واجهة البوتات 20 ميغابايت."""
+    token = os.environ["TELEGRAM_BOT_TOKEN"]
+    info = json.load(urllib.request.urlopen(f"https://api.telegram.org/bot{token}/getFile?file_id={file_id}", timeout=40))
+    urllib.request.urlretrieve(f"https://api.telegram.org/file/bot{token}/{info['result']['file_path']}", dest)
+
+
 def fetch_source(item, dest):
     url = item["source_url"]
+    if url.startswith("tg://"):
+        return fetch_telegram(url[5:], dest)
     if url.lower().endswith(".mp4") or "theplatform.com" in url:
         urllib.request.urlretrieve(best_rendition(url), dest)
     else:
