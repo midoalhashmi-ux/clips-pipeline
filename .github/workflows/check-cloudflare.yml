@@ -19,12 +19,14 @@ jobs:
           if [[ "$T" =~ [[:space:]] ]]; then echo "has_whitespace=yes"; else echo "has_whitespace=no"; fi
           if [[ "$T" =~ ^[0-9a-fA-F]+$ ]]; then echo "all_hex=yes"; else echo "all_hex=no"; fi
           if [[ "$T" == Bearer* ]]; then echo "starts_with_Bearer=yes"; else echo "starts_with_Bearer=no"; fi
-          R=$(curl -s -H "Authorization: Bearer ${T}" https://api.cloudflare.com/client/v4/user/tokens/verify || true)
-          echo "$R" | python3 -c "import sys,json
-try:
-    d=json.load(sys.stdin)
-    print('api_success=',d.get('success'))
-    print('api_status=',(d.get('result') or {}).get('status'))
-    print('api_errors=',[e.get('message') for e in d.get('errors',[])])
-except Exception as e:
-    print('api_unreadable')"
+          curl -s -H "Authorization: Bearer ${T}" https://api.cloudflare.com/client/v4/user/tokens/verify > r.json || true
+          python3 - <<'PY'
+          import json
+          try:
+              d = json.load(open('r.json'))
+              print('api_success=', d.get('success'))
+              print('api_status=', (d.get('result') or {}).get('status'))
+              print('api_errors=', [e.get('message') for e in d.get('errors', [])])
+          except Exception:
+              print('api_unreadable')
+          PY
