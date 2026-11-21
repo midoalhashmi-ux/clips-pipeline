@@ -155,7 +155,13 @@ def build_montage(item, d, target=None):
     """مقاطع متعددة تناسب القصة (طلب المالك 20 نوفمبر 2026): كل مقطع في `segments` له `url` اختياري (الافتراضي مصدر العمل)
     و`start` و`dur` و`shows` (ما يظهر فيه). تُقصّ وتُدمج بالترتيب بحجم 1920x1080 بلا صوت، ثم تُستعمل كمصدر واحد."""
     cache, parts = {}, []
-    total = sum(float(sg["dur"]) for sg in item["segments"]) or 1.0
+    # stretch (اختياري لكل لقطة، حتى 2.0): إبطاء لقطة نظيفة قصيرة لتغطي جملتها كاملة (21 نوفمبر 2026)
+    st = lambda sg: min(2.0, max(1.0, float(sg.get("stretch", 1.0))))
+    # zoom_top (اختياري حتى 1.3): تكبير مثبّت من الأعلى يُسقط سطر ترجمة محروقة أسفل اللقطة (21 نوفمبر 2026)
+    def zoom(sg):
+        z = min(1.3, max(1.0, float(sg.get("zoom_top", 1.0))))
+        return "" if z == 1.0 else f"crop=iw/{z}:ih/{z}:(iw-iw/{z})/2:0,"
+    total = sum(float(sg["dur"]) * st(sg) for sg in item["segments"]) or 1.0
     # تتمدد اللقطات أو تنكمش معاً لتطابق طول الصوت (بين 0.7 و1.3)، فتبقى كل لقطة على جملتها
     factor = min(1.3, max(0.7, target / total)) if target else 1.0
     if target and total * factor < target - 0.2:  # لقطات أقل من الصوت = تكرار أول اللقطات في النهاية؛ يجب إضافة لقطات
@@ -170,9 +176,9 @@ def build_montage(item, d, target=None):
         # لا نخرج عن النافذة المراجَعة أبداً: الإطالة تكون بإبطاء خفيف للّقطة نفسها، والتقصير بقصّها
         dur = float(seg["dur"]) * min(factor, 1.0)
         # تصفير توقيت كل لقطة يمنع اختلال تزامن الكتابة بين المصادر المختلفة
-        slow = f"setpts=(PTS-STARTPTS)*{max(factor, 1.0):.3f},"
+        slow = f"setpts=(PTS-STARTPTS)*{max(factor, 1.0) * st(seg):.3f},"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{float(seg['start']):.2f}", "-t", f"{dur:.2f}",
-            "-i", str(cache[url]), "-vf", f"{slow}scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30",
+            "-i", str(cache[url]), "-vf", f"{slow}{zoom(seg)}scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30",
             "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", str(out)], check=True)
         parts.append(out)
     # دمج بمرشّح concat لا بملف قائمة: نسخة ffmpeg الحديثة على خادم الإنتاج أسقطت لقطة كاملة بطريقة القائمة (21 نوفمبر 2026)

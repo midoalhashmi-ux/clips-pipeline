@@ -1744,7 +1744,7 @@
     "accent": "#ff6b5e",
     "speech": "أسماء شخصيات قاتل الشياطين تكشف حقيقتها فعلاً. أغاتسوما، لقب زينيتسو، يعني زوجتي. وإينو في اسم إينوسكي تشبه كلمة الخنزير البري. ورينغوكو يعني المطهر. وإنمو من الكابوس والحلم. ومو في اسم مويتشيرو تعني العدم. أي اسم أعجبك؟ اكتب رأيك.",
     "footage_checked": true,
-    "footage_match": "كل اللقطات رسمية، وكل شخصية تظهر عند ذكر اسمها: زينيتسو، إينوسكي، رينغوكو، إنمو، مويتشيرو؛ بطاقات الأسماء واجتماع الهاشيرا في الافتتاح؛ مراجعة 21 نوفمبر: أزيلت لقطات اجتماع الهاشيرا ذات الترجمة المبتورة ولقطة رينغوكو ذات حقوق الأغنية المكتوبة، واستُبدلت بوجوه الهاشيرا بلا نص.",
+    "footage_match": "كل جملة بلقطات شخصيتها وبطولها الفعلي في الصوت: وجوه الهاشيرا مع الافتتاحية، زينيتسو مع أغاتسوما، إينوسكي مبطّأ مع جملته الطويلة، رينغوكو، إنمو، مويتشيرو، ثم ميتسوري وغيو وتينغن مع السؤال. مراجعة 21 نوفمبر: بلا ترجمات مبتورة ولا حقوق مكتوبة، ومحاذاة بتوقيت الجمل.",
     "title": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات",
     "description": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات\nماذا تعني أسماء شخصيات قاتل الشياطين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#DemonSlayer #قاتل_الشياطين #شرح_أنمي",
     "tags": [
@@ -1787,14 +1787,14 @@
     "segments": [
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 49.0,
-        "dur": 0.9,
+        "start": 48.6,
+        "dur": 1.3,
         "shows": "تينغن ببطاقة اسمه"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
         "start": 52.0,
-        "dur": 1.4,
+        "dur": 1.8,
         "shows": "أوباناي"
       },
       {
@@ -1806,43 +1806,29 @@
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
         "start": 61.3,
-        "dur": 1.4,
+        "dur": 2.1,
         "shows": "برق زينيتسو"
       },
       {
-        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 63.0,
-        "dur": 0.8,
-        "shows": "زينيتسو"
-      },
-      {
-        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 60.2,
-        "dur": 0.9,
-        "shows": "إينوسكي"
-      },
-      {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 60.6,
-        "dur": 1.3,
-        "shows": "إينوسكي بجسده العاري قبل ظهور قناعه"
+        "start": 60.5,
+        "dur": 1.4,
+        "stretch": 2.0,
+        "shows": "إينوسكي بجسده ثم قناعه، بإبطاء",
+        "zoom_top": 1.25
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
         "start": 54.3,
         "dur": 1.6,
+        "stretch": 1.25,
         "shows": "رينغوكو ولهبه"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
         "start": 30.3,
         "dur": 1.4,
-        "shows": "إنمو"
-      },
-      {
-        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 58.3,
-        "dur": 0.9,
+        "stretch": 1.5,
         "shows": "إنمو"
       },
       {
@@ -1860,13 +1846,13 @@
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
         "start": 74.0,
-        "dur": 1.5,
-        "shows": "غيو وتانجيرو"
+        "dur": 0.9,
+        "shows": "غيو"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 78.0,
-        "dur": 1.5,
+        "start": 78.6,
+        "dur": 0.9,
         "shows": "تينغن"
       }
     ],
