@@ -482,12 +482,16 @@ def sentence_ends(speech, wav):
     return out
 
 
-def _norm_cut(src, start, length, dst, beat=False):
-    """يقصّ جزءاً بتنسيق موحّد (1080x1920، 30 إطاراً، صوت أحادي 44.1 كيلوهرتز) ليُدمج بلا اختلال."""
+def _norm_cut(src, start, length, dst, beat=False, video_dur=None):
+    """يقصّ جزءاً بتنسيق موحّد (1080x1920، 30 إطاراً، صوت أحادي 44.1 كيلوهرتز) ليُدمج بلا اختلال.
+    video_dur (للحظات الأنمي): الصورة من أول video_dur ثانية فقط، مُبطّأة لتغطي الجملة كاملة، فلا تظهر لقطة لاحقة لا تخص القصة."""
     vf = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,format=yuv420p"
     af = "aresample=44100"
     if beat:  # لحظة الأنمي: الإطار كاملاً فوق خلفية مموّهة (لا تُقصّ ترجمته)، ومستوى قريب من صوتنا مع دخول وخروج ناعمين
-        vf = ("split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24,eq=brightness=-0.12[bg];"
+        hold = ""
+        if video_dur and length and video_dur < length:
+            hold = f"trim=0:{video_dur:.3f},setpts=(PTS-STARTPTS)*{length / video_dur:.4f},"
+        vf = (f"{hold}split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24,eq=brightness=-0.12[bg];"
               "[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1,fps=30,format=yuv420p")
         af = f"loudnorm=I=-16:TP=-1.5,afade=t=in:d=0.08,afade=t=out:st={max(0.0, length - 0.2):.2f}:d=0.2,aresample=44100"
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start:.3f}"] + (["-t", f"{length:.3f}"] if length else []) + [
@@ -511,7 +515,8 @@ def insert_beats(it, d, video, wav):
             if not has_audio(src):
                 raise SystemExit(f"لحظة الأنمي بلا صوت: {url}")
             cache[url] = src
-        c = d / f"_beat{i}.mp4"; _norm_cut(cache[url], float(b["start"]), float(b["dur"]), c, beat=True); pieces.append(c)
+        c = d / f"_beat{i}.mp4"; pieces.append(c)
+        _norm_cut(cache[url], float(b["start"]), float(b["dur"]), c, beat=True, video_dur=b.get("video_dur") and float(b["video_dur"]))
         cur = t
     tail = d / "_btail.mp4"; _norm_cut(video, cur, None, tail); pieces.append(tail)
     n = len(pieces)

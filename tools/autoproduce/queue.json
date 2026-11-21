@@ -804,8 +804,8 @@
       },
       {
         "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
-        "start": 1.0,
-        "dur": 1.0,
+        "start": 0.6,
+        "dur": 1.4,
         "shows": "لوفي بشكل نيكا"
       },
       {
@@ -818,7 +818,7 @@
       {
         "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
         "start": 47.0,
-        "dur": 2.6,
+        "dur": 3.2,
         "shows": "نيكا يضحك"
       },
       {
@@ -831,7 +831,7 @@
       {
         "url": "https://www.tiktok.com/@toeianimationofficial/video/7535277367242050846",
         "start": 14.3,
-        "dur": 5.0,
+        "dur": 4.0,
         "shows": "نيكا يقاتل"
       },
       {
@@ -866,7 +866,7 @@
         "shows": "نيكا"
       }
     ],
-    "footage_match": "إيمو يظهر عند ذكره (لقطات قصيرة من الحلقة 1118)، والحكماء الخمسة عند ذكر الحكومة؛ لوفي بشكل نيكا (رسمي من توي) عند ذكر نيكا وجوي بوي والهاكي والسؤال الأخير.",
+    "footage_match": "إيمو يظهر عند ذكره (لقطات قصيرة من الحلقة 1118)، والحكماء الخمسة عند ذكر الحكومة؛ لوفي بشكل نيكا (رسمي من توي) عند ذكر نيكا وجوي بوي والهاكي والسؤال الأخير؛ مراجعة 21 نوفمبر: قُصّت لقطة نيكا قبل ترجمة Go get him.",
     "source_credit": "لقطات معجبين: https://www.tiktok.com/@realshanks/video/7412084155397246241 (realshanks). الحقوق لأصحاب العمل.",
     "footage_checked": true
   },
@@ -1161,7 +1161,8 @@
         "dur": 3.9,
         "official": true,
         "shows": "إعلان الموسم الأول الرسمي: يد لعنة، ضريح الإصبع، إصبع سوكونا، مع ترجمة The Double-Faced Specter is the king of the Curses",
-        "hears": "両面宿儺は紛うことなき呪いの王だ (ريومين سوكونا هو ملك اللعنات بلا شك)"
+        "hears": "両面宿儺は紛うことなき呪いの王だ (ريومين سوكونا هو ملك اللعنات بلا شك)",
+        "video_dur": 2.9
       }
     ]
   },
@@ -1742,7 +1743,7 @@
     "accent": "#ff6b5e",
     "speech": "أسماء شخصيات قاتل الشياطين تكشف حقيقتها فعلاً. أغاتسوما، لقب زينيتسو، يعني زوجتي. وإينو في اسم إينوسكي تشبه كلمة الخنزير البري. ورينغوكو يعني المطهر. وإنمو من الكابوس والحلم. ومو في اسم مويتشيرو تعني العدم. أي اسم أعجبك؟ اكتب رأيك.",
     "footage_checked": true,
-    "footage_match": "كل اللقطات رسمية، وكل شخصية تظهر عند ذكر اسمها: زينيتسو، إينوسكي، رينغوكو، إنمو، مويتشيرو؛ بطاقات الأسماء واجتماع الهاشيرا في الافتتاح.",
+    "footage_match": "كل اللقطات رسمية، وكل شخصية تظهر عند ذكر اسمها: زينيتسو، إينوسكي، رينغوكو، إنمو، مويتشيرو؛ بطاقات الأسماء واجتماع الهاشيرا في الافتتاح؛ مراجعة 21 نوفمبر: أزيلت لقطات اجتماع الهاشيرا ذات الترجمة المبتورة ولقطة رينغوكو ذات حقوق الأغنية المكتوبة، واستُبدلت بوجوه الهاشيرا بلا نص.",
     "title": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات",
     "description": "Demon Slayer قاتل الشياطين | معاني أسماء الشخصيات\nماذا تعني أسماء شخصيات قاتل الشياطين؟ نشرح السر بتفاصيل من القصة يفوّتها أغلب المتابعين.\n\nاكتب رأيك بالتعليقات.\n\nلتحميل تطبيق مشاهدة الأنمي والمسلسلات والأفلام على أندرويد: افتح قناتنا ثم اضغط على رابط التحميل.\nhttps://binsheikh.pages.dev\n\n#DemonSlayer #قاتل_الشياطين #شرح_أنمي",
     "tags": [
@@ -1791,9 +1792,15 @@
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 18.5,
-        "dur": 2.5,
-        "shows": "اجتماع الهاشيرا"
+        "start": 52.0,
+        "dur": 1.4,
+        "shows": "أوباناي"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 68.0,
+        "dur": 1.4,
+        "shows": "سانيمي"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
@@ -1815,15 +1822,9 @@
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 61.5,
-        "dur": 2.5,
-        "shows": "إينوسكي"
-      },
-      {
-        "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
-        "start": 52.3,
-        "dur": 1.0,
-        "shows": "رينغوكو"
+        "start": 60.6,
+        "dur": 1.3,
+        "shows": "إينوسكي بجسده العاري قبل ظهور قناعه"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/bbQMnKgaLDOe?formats=MPEG4",
@@ -1851,15 +1852,21 @@
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 21.5,
-        "dur": 2.0,
-        "shows": "اجتماع الهاشيرا"
+        "start": 72.0,
+        "dur": 1.6,
+        "shows": "ميتسوري"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
-        "start": 23.5,
-        "dur": 3.0,
-        "shows": "اجتماع الهاشيرا"
+        "start": 74.0,
+        "dur": 1.5,
+        "shows": "غيو وتانجيرو"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/dwvXJ_F6lHfH?formats=MPEG4",
+        "start": 78.0,
+        "dur": 1.5,
+        "shows": "تينغن"
       }
     ],
     "source_credit": ""
