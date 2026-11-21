@@ -156,8 +156,10 @@ def build_montage(item, d, target=None):
     و`start` و`dur` و`shows` (ما يظهر فيه). تُقصّ وتُدمج بالترتيب بحجم 1920x1080 بلا صوت، ثم تُستعمل كمصدر واحد."""
     cache, parts = {}, []
     total = sum(float(sg["dur"]) for sg in item["segments"]) or 1.0
-    # تتمدد اللقطات أو تنكمش معاً لتطابق طول الصوت (بين 0.7 و1.25)، فتبقى كل لقطة على جملتها
-    factor = min(1.25, max(0.7, target / total)) if target else 1.0
+    # تتمدد اللقطات أو تنكمش معاً لتطابق طول الصوت (بين 0.7 و1.3)، فتبقى كل لقطة على جملتها
+    factor = min(1.3, max(0.7, target / total)) if target else 1.0
+    if target and total * factor < target - 0.2:  # لقطات أقل من الصوت = تكرار أول اللقطات في النهاية؛ يجب إضافة لقطات
+        print(f"تنبيه: اللقطات {total * factor:.1f}ث أقصر من الصوت {target:.1f}ث؛ ستتكرر البداية. أضف لقطات نظيفة.")
     for i, seg in enumerate(item["segments"]):
         url = seg.get("url") or item["source_url"]
         if url not in cache:

@@ -933,15 +933,9 @@
     "segments": [
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 11.4,
-        "dur": 1.4,
-        "shows": "غوجو"
-      },
-      {
-        "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
-        "start": 38.0,
-        "dur": 1.9,
-        "shows": "غوجو: أنا الأقوى"
+        "start": 10.4,
+        "dur": 2.6,
+        "shows": "شيبويا ليلاً ثم عينا غوجو ثم وجهه"
       },
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
@@ -957,10 +951,17 @@
         "shows": "غوجو في سجن الأبعاد"
       },
       {
+        "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
+        "start": 124.9,
+        "dur": 0.7,
+        "shows": "عين غوجو",
+        "official": false
+      },
+      {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 19.4,
-        "dur": 1.8,
-        "shows": "ماهوراغا"
+        "start": 19.0,
+        "dur": 2.6,
+        "shows": "سوكونا ثم ماهوراغا"
       },
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
@@ -972,7 +973,7 @@
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
         "start": 348.0,
-        "dur": 1.4,
+        "dur": 1.2,
         "shows": "ماهوراغا يزأر",
         "official": false
       },
@@ -985,20 +986,26 @@
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
         "start": 28.5,
-        "dur": 2.5,
+        "dur": 1.2,
         "shows": "إصبع سوكونا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
         "start": 38.4,
-        "dur": 1.4,
+        "dur": 1.8,
         "shows": "ضربات سوكونا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
         "start": 23.0,
-        "dur": 2.2,
+        "dur": 2.4,
         "shows": "لهب سوكونا يدمر المكان"
+      },
+      {
+        "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
+        "start": 32.9,
+        "dur": 0.8,
+        "shows": "انفجار شيبويا"
       },
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
@@ -1016,11 +1023,11 @@
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
         "start": 36.0,
-        "dur": 0.9,
+        "dur": 1.0,
         "shows": "عين غوجو"
       }
     ],
-    "footage_match": "الخطاف وغوجو: لقطات غوجو الرسمية؛ ماهوراغا وعجلته عند ذكر التكيّف؛ إشارة مجال سوكونا وضرباته عند ذكر المجال والضربة؛ رسوم معجبين قصيرة لضربة قطع المكان؛ عين غوجو في السؤال الأخير.",
+    "footage_match": "غوجو حين يُذكر (شيبويا ثم عيناه، ابتسامته، سجن الأبعاد)، ثم لحظة صوته «أنا الأقوى»، ثم سوكونا وماهوراغا وعجلته حين تُذكر، ثم إشارة المجال، ثم الضربات واللهب وانفجار شيبويا مع «الضربة الأخيرة»، ثم سوكونا، ثم عين غوجو مع السؤال. مراجعة 21 نوفمبر: أزيلت لقطة غوجو المكررة ذات الترجمة المبتورة، وقُصّت لقطة الإصبع قبل الترجمة عند 29.8، وأضيفت لقطات نظيفة لتغطية الصوت.",
     "source_credit": "لقطات معجبين: https://www.tiktok.com/@satoruhm2/video/7492312112102968581 (satoruhm2). الحقوق لأصحاب العمل.",
     "footage_checked": true,
     "beats": [
@@ -1097,7 +1104,7 @@
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
         "start": 88.0,
-        "dur": 1.9,
+        "dur": 2.2,
         "shows": "سوكونا بعينين حمراوين",
         "official": false
       },
@@ -1116,13 +1123,13 @@
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
         "start": 23.0,
-        "dur": 2.2,
+        "dur": 2.4,
         "shows": "لهب سوكونا كالسهم"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
         "start": 38.4,
-        "dur": 1.4,
+        "dur": 1.8,
         "shows": "ضربات سوكونا"
       },
       {
@@ -1134,14 +1141,14 @@
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/nCNfJTlYRMs_?formats=MPEG4",
         "start": 28.5,
-        "dur": 2.8,
+        "dur": 1.2,
         "shows": "إصبع سوكونا"
       },
       {
         "url": "https://link.theplatform.com/s/NGweTC/media/zasTiKYv_OwV?formats=MPEG4",
-        "start": 19.4,
-        "dur": 1.8,
-        "shows": "ماهوراغا تابع سوكونا"
+        "start": 19.0,
+        "dur": 2.6,
+        "shows": "سوكونا ثم ماهوراغا تابعه"
       },
       {
         "url": "https://www.tiktok.com/@satoruhm2/video/7492312112102968581",
@@ -1151,7 +1158,7 @@
         "official": false
       }
     ],
-    "footage_match": "كل اللقطات رسمية: سوكونا وإشارة مجاله ولهبه عند ذكر الأسطورة والقوس؛ أصابعه الملعونة (آثاره) عند ذكر الكتاب القديم والتماثيل؛ إيتادوري مع عبارة «الشبح ذو الوجهين» عند نظرية التوأم؛ أزيلت لقطتا الترجمة المقصوصة والجد (مراجعة 20 نوفمبر)، وقُصّرت لقطة زئير ماهوراغا لتسبق الترجمة.",
+    "footage_match": "كل اللقطات رسمية: سوكونا وإشارة مجاله ولهبه عند ذكر الأسطورة والقوس؛ أصابعه الملعونة (آثاره) عند ذكر الكتاب القديم والتماثيل؛ إيتادوري مع عبارة «الشبح ذو الوجهين» عند نظرية التوأم؛ أزيلت لقطتا الترجمة المقصوصة والجد (مراجعة 20 نوفمبر)، وقُصّرت لقطة زئير ماهوراغا لتسبق الترجمة؛ مراجعة 21 نوفمبر: قُصّت لقطة الإصبع قبل الترجمة عند 29.8، وطُوّلت لقطات نظيفة لتغطية الصوت.",
     "source_credit": "لقطات معجبين: https://www.tiktok.com/@satoruhm2/video/7492312112102968581 (satoruhm2). الحقوق لأصحاب العمل.",
     "footage_checked": true,
     "beats": [
