@@ -175,13 +175,19 @@ def build_montage(item, d, target=None):
             "-i", str(cache[url]), "-vf", f"{slow}scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30",
             "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", str(out)], check=True)
         parts.append(out)
-    lst = d / "_montage.txt"
-    lst.write_text("\n".join(f"file '{p}'" for p in parts), encoding="utf-8")
+    # دمج بمرشّح concat لا بملف قائمة: نسخة ffmpeg الحديثة على خادم الإنتاج أسقطت لقطة كاملة بطريقة القائمة (21 نوفمبر 2026)
+    durs = [media_dur(p) for p in parts]
+    print("مدد اللقطات:", ", ".join(f"{x:.2f}" for x in durs), "= المجموع", f"{sum(durs):.2f}")
     montage = d / "source.mp4"
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
-        "-vf", "setpts=N/(30*TB),fps=30", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p",
+    graph = "".join(f"[{k}:v]setpts=PTS-STARTPTS,fps=30,format=yuv420p[v{k}];" for k in range(len(parts)))
+    graph += "".join(f"[v{k}]" for k in range(len(parts))) + f"concat=n={len(parts)}:v=1:a=0[v]"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *sum((["-i", str(p)] for p in parts), []),
+        "-filter_complex", graph, "-map", "[v]", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p",
         str(montage)], check=True)
-    for p in [*parts, *cache.values(), lst]:
+    got = media_dur(montage)
+    if got < sum(durs) - 0.3:
+        print(f"تنبيه: المونتاج {got:.2f}ث أقصر من مجموع اللقطات {sum(durs):.2f}ث؛ لقطة سقطت")
+    for p in [*parts, *cache.values()]:
         p.unlink()
     return montage
 
